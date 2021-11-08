@@ -1,10 +1,17 @@
 import React from 'react';
+import { Route, Switch } from 'react-router';
+import GlobalStyles from './lib/styles/global';
 
 const App = () => {
   return (
-    <div>
-      <h1>My BoilerPlate..!</h1>
-    </div>
+    <>
+      <GlobalStyles />
+      <Switch>
+        <Route></Route>
+        <Route></Route>
+        <Route></Route>
+      </Switch>
+    </>
   );
 };
 
