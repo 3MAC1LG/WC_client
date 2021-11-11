@@ -29,6 +29,7 @@ module.exports = {
       title: 'Boilerplate for React',
       template: paths.src + '/index.html',
       filename: 'index.html',
+      favicon: './public/favicon.png',
     }),
   ],
   module: {

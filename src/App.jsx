@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-// import useDarkMode from './hooks/useDarkMode';
 import useDarkMode from 'use-dark-mode';
 import GlobalStyles from './lib/styles/global';
 import loadable from '@loadable/component';
