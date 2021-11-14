@@ -6,6 +6,7 @@ import loadable from '@loadable/component';
 import { ThemeProvider } from '@emotion/react';
 import Theme from './lib/styles/Theme';
 import Main from './pages/Main';
+import Landing from './pages/Landing';
 
 const Login = loadable(() => import('./pages/Login'));
 
@@ -21,6 +22,9 @@ const App = () => {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/landing">
+            <Landing />
           </Route>
         </Switch>
       </ThemeProvider>

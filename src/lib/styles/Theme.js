@@ -13,7 +13,7 @@ export const dark = {
  */
 
 export const light = {
-  defaultBgc: '#F4F4F4',
+  defaultBgc: '#FCFDFE',
   primary: '#8A85EC',
   sub: '#FED595',
 };
