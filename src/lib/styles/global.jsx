@@ -8,19 +8,18 @@ const styles = (theme) => css`
     font-size: 62.5%;
     font-family: 'Gmaket Sans', sans-serif;
     background: ${theme.defaultBgc};
-  }
-
-  @media screen and (max-width: 1280px) {
-    font-size: 56.25%;
-  }
-  @media screen and (max-width: 1024px) {
-    font-size: 50%;
-  }
-  @media screen and (max-width: 768px) {
-    font-size: 37.5%;
-  }
-  @media screen and (max-width: 480px) {
-    font-size: 25%;
+    @media screen and (max-width: 1280px) {
+      font-size: 56.25%;
+    }
+    @media screen and (max-width: 1024px) {
+      font-size: 50%;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 37.5%;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 25%;
+    }
   }
 
   * {

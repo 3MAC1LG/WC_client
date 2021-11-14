@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import useDarkMode from 'use-dark-mode';
 
 const Main = () => {
