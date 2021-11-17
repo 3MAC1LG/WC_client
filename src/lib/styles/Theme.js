@@ -8,6 +8,7 @@ export const dark = {
   sub: '#fff',
   font_p: '#FCFDFE',
   font_s: '#FCFDFE',
+  header: '#787A81',
 };
 
 /**
@@ -20,6 +21,7 @@ export const light = {
   sub: '#FED595',
   font_p: '#FFFFFF',
   font_s: '#313131',
+  header: '#8A85EC',
 };
 
 const mode = {
