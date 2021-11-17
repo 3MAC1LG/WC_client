@@ -3,9 +3,11 @@
  */
 
 export const dark = {
-  defaultBgc: '#121212',
-  primary: '#292a2d',
+  defaultBgc: '#292A2D',
+  primary: '#141620',
   sub: '#fff',
+  font_p: '#FCFDFE',
+  font_s: '#FCFDFE',
 };
 
 /**
@@ -16,6 +18,8 @@ export const light = {
   defaultBgc: '#FCFDFE',
   primary: '#8A85EC',
   sub: '#FED595',
+  font_p: '#FFFFFF',
+  font_s: '#313131',
 };
 
 const mode = {
