@@ -93,7 +93,7 @@ export const PartOneContainer = styled.div`
       margin-bottom: 2rem;
       span {
         position: relative;
-        z-index: 999;
+        z-index: 100;
       }
       span:after {
         content: '';

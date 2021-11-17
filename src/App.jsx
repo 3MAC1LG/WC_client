@@ -7,8 +7,11 @@ import { ThemeProvider } from '@emotion/react';
 import Theme from './lib/styles/Theme';
 import Main from './pages/Main';
 import Landing from './pages/Landing';
+import Header from './layout/Header';
 
 const Login = loadable(() => import('./pages/Login'));
+const Account = loadable(() => import('./pages/Account'));
+const Lecture = loadable(() => import('./pages/Lecture'));
 
 const App = () => {
   const darkMode = useDarkMode(false);
@@ -16,6 +19,7 @@ const App = () => {
     <>
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
         <GlobalStyles />
+        <Header />
         <Switch>
           <Route exact path="/">
             <Main />
@@ -25,6 +29,12 @@ const App = () => {
           </Route>
           <Route path="/landing">
             <Landing />
+          </Route>
+          <Route path="/lecture">
+            <Lecture />
+          </Route>
+          <Route path="/account">
+            <Account />
           </Route>
         </Switch>
       </ThemeProvider>

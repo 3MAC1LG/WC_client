@@ -28,6 +28,10 @@ const styles = (theme) => css`
     padding: 0;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   ul,
   li {
     padding: 0;
