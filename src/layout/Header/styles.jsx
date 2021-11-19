@@ -12,7 +12,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     .header-left {
-      flex: 0.5;
+      flex: 0.2;
       h1 {
         cursor: pointer;
         font-size: 2.65rem;
@@ -20,14 +20,14 @@ export const HeaderContainer = styled.div`
       }
     }
     .header-right {
-      flex: 0.5;
+      flex: 0.8;
       ul {
         display: flex;
         align-items: center;
         justify-content: flex-end;
         font-size: 1.5rem;
         li {
-          padding-left: 15rem;
+          padding-left: 10rem;
           a {
             color: #fff;
           }
@@ -39,6 +39,22 @@ export const HeaderContainer = styled.div`
             font-family: 'Gmaket Sans', sans-serif;
             font-size: 1.5rem;
             color: #fff;
+          }
+          .header-user {
+            position: relative;
+            .header-user-back {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: #fff;
+              color: #868e96;
+              cursor: pointer;
+              border-radius: 2rem 2.2rem;
+              padding: 1rem 1rem;
+              svg {
+                font-size: 2rem;
+              }
+            }
           }
         }
       }
