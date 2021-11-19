@@ -8,6 +8,7 @@ import Theme from './lib/styles/Theme';
 import Main from './pages/Main';
 import Landing from './pages/Landing';
 import Header from './layout/Header';
+import useSWR from 'swr';
 
 const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
