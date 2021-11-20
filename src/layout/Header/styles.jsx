@@ -16,7 +16,6 @@ export const HeaderContainer = styled.div`
       h1 {
         cursor: pointer;
         font-size: 2.65rem;
-        color: #fff;
       }
     }
     .header-right {
@@ -67,9 +66,26 @@ export const HeaderContainerStyles = (theme) => css`
   .header {
     .header-left {
       h1 {
+        color: ${theme.font_a};
       }
     }
     .header-right {
+      ul {
+        li {
+          a {
+            color: ${theme.font_a};
+          }
+          button {
+          }
+          .header-user {
+            .header-user-back {
+              background: ${theme.font_a};
+              svg {
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;

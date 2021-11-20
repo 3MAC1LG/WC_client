@@ -5,10 +5,16 @@
 export const dark = {
   defaultBgc: '#292A2D',
   primary: '#141620',
+  container: '#292A2D',
   sub: '#fff',
   font_p: '#FCFDFE',
   font_s: '#FCFDFE',
-  header: '#787A81',
+  font_e: '#F0F1F4',
+  font_a: '#292A2D',
+  font_l: '#F0F1F4',
+  header: '#F0F1F4',
+  active: '#F0F1F4',
+  border: '#F0F1F4',
 };
 
 /**
@@ -18,10 +24,16 @@ export const dark = {
 export const light = {
   defaultBgc: '#FCFDFE',
   primary: '#8A85EC',
+  container: '#F1F3F9',
   sub: '#FED595',
   font_p: '#FFFFFF',
   font_s: '#313131',
+  font_e: '#838383',
+  font_a: '#FCFDFE',
+  font_l: '#8A85EC',
   header: '#8A85EC',
+  active: '#8A85EC',
+  border: '#F1F3F9',
 };
 
 const mode = {
