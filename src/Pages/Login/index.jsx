@@ -1,13 +1,17 @@
+/** @jsxImportSource @emotion/react */
+import { useTheme } from '@emotion/react';
 import React from 'react';
 import KakaoLogin from '../../components/KakaoLogin';
 import Responsive from '../../lib/styles/Responsive';
 import Logo from '../../lib/styles/svg/Logo';
-import { Container } from './styles';
+import { Container, ContainerStyles } from './styles';
+
 const Login = () => {
+  const theme = useTheme();
   return (
     <div>
       <Responsive>
-        <Container>
+        <Container css={ContainerStyles(theme)}>
           <div className="logo">
             <Logo />
           </div>
