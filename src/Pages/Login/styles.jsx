@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const Container = styled.div`
   display: flex;
@@ -14,5 +15,11 @@ export const Container = styled.div`
     font-size: 1.4rem;
     margin-bottom: 10rem;
     color: #a8a3f3;
+  }
+`;
+
+export const ContainerStyles = (theme) => css`
+  .text {
+    color: ${theme.font_l};
   }
 `;
