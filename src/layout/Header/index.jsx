@@ -47,7 +47,7 @@ const Header = ({ history }) => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink activeStyle={{ fontWeight: 'bold' }} to="/account">
+                  <NavLink activeStyle={{ fontWeight: 'bold' }} to="/mypage">
                     마이페이지
                   </NavLink>
                 </li>
