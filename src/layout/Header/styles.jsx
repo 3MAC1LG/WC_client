@@ -37,7 +37,6 @@ export const HeaderContainer = styled.div`
             cursor: pointer;
             font-family: 'Gmaket Sans', sans-serif;
             font-size: 1.5rem;
-            color: #fff;
           }
           .header-user {
             position: relative;
@@ -76,6 +75,7 @@ export const HeaderContainerStyles = (theme) => css`
             color: ${theme.font_a};
           }
           button {
+            color: ${theme.font_a};
           }
           .header-user {
             .header-user-back {

@@ -15,6 +15,7 @@ export const dark = {
   header: '#F0F1F4',
   active: '#F0F1F4',
   border: '#F0F1F4',
+  contents: '#F0F1F4',
 };
 
 /**
@@ -34,6 +35,7 @@ export const light = {
   header: '#8A85EC',
   active: '#8A85EC',
   border: '#F1F3F9',
+  contents: '#ECEEF6',
 };
 
 const mode = {

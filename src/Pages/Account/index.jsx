@@ -1,16 +1,19 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
-import { AccountContainer } from './styles';
-import useSWR from 'swr';
+import { AccountContainer, AccountContainerStyles } from './styles';
 import Responsive from '../../lib/styles/Responsive';
 import Menu from '../../components/Menu';
+import AccountForm from './AccountForm';
+import { useTheme } from '@emotion/react';
 
 const Accout = () => {
-  // const {} = useSWR(`http://localhost:4000/api/classrooms/:${}`)
+  const theme = useTheme();
   return (
-    <AccountContainer>
+    <AccountContainer css={AccountContainerStyles(theme)}>
       <Responsive>
         <div className="account">
           <Menu />
+          <AccountForm />
         </div>
       </Responsive>
     </AccountContainer>

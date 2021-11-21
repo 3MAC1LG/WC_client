@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 export const MyPageClassroomsContainer = styled.div`
-  padding-left: 6rem;
+  margin-bottom: 5rem;
   flex: 0.9;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   .title {
     width: 100%;
     display: flex;
@@ -27,8 +27,33 @@ export const MyPageClassroomsContainer = styled.div`
     margin-bottom: 6rem;
     font-size: 1.75rem;
   }
+
+  button {
+    border: none;
+    background: none;
+    outline: none;
+
+    cursor: pointer;
+    border-radius: 0.7rem;
+    padding: 2rem 12rem;
+    font-size: 2.25rem;
+    font-weight: bold;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
 `;
 
 export const MyPagePtagStyles = (theme) => css`
   color: ${theme.font_l};
+  .title {
+    h1 {
+      color: ${theme.font_s};
+    }
+  }
+
+  button {
+    background: ${theme.active};
+    color: ${theme.font_a};
+  }
 `;
