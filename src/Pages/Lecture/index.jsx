@@ -1,10 +1,19 @@
 import React from 'react';
+import Responsive from '../../lib/styles/Responsive';
+import Menu from '../../components/Menu';
+import { LectureContainer } from './styles';
+import LectureList from './LectureList';
 
 const Lecture = () => {
   return (
-    <div>
-      <h1>Lecture</h1>
-    </div>
+    <LectureContainer>
+      <Responsive>
+        <div className="lecture">
+          <Menu />
+          <LectureList />
+        </div>
+      </Responsive>
+    </LectureContainer>
   );
 };
 
