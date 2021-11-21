@@ -10,6 +10,7 @@ import Landing from './pages/Landing';
 import Header from './layout/Header';
 import useSWR from 'swr';
 import { fetcher } from './lib/api/fetcher';
+import DarkToggle from './components/DarkToggle';
 
 const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
@@ -27,6 +28,7 @@ const App = () => {
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
         <GlobalStyles />
         <Header />
+        <DarkToggle />
         <Switch>
           <Route exact path="/">
             <Main />
