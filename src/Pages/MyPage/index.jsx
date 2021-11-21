@@ -21,7 +21,7 @@ const MyPage = () => {
       <Responsive>
         <div className="mypage">
           <Menu />
-          <MyPageClassrooms />
+          <MyPageClassrooms classroomData={classroomData} />
         </div>
       </Responsive>
     </MyPageContainer>

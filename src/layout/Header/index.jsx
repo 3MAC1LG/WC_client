@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useTheme } from '@emotion/react';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Responsive from '../../lib/styles/Responsive';
 import { withRouter } from 'react-router-dom';
@@ -46,11 +46,13 @@ const Header = ({ history }) => {
                     강의찾기
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink activeStyle={{ fontWeight: 'bold' }} to="/mypage">
-                    마이페이지
-                  </NavLink>
-                </li>
+                {userData && (
+                  <li>
+                    <NavLink activeStyle={{ fontWeight: 'bold' }} to="/mypage">
+                      마이페이지
+                    </NavLink>
+                  </li>
+                )}
                 <li>
                   {userData ? (
                     <div className="header-user">
