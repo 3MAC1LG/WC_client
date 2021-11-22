@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global, useTheme } from '@emotion/react';
 
 const styles = (theme) => css`
-  @import url('./assets/font/font.css');
+  @import url('/assets/font/font.css');
   html,
   body {
     font-size: 62.5%;

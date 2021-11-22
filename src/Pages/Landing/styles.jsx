@@ -78,7 +78,7 @@ export const PartOneContainer = styled.div`
   ${(props) =>
     !props.darkMode.value &&
     css`
-      background: url('./assets/images/circle.png') no-repeat;
+      background: url('/assets/images/circle.png') no-repeat;
     `}
   background-size: 135% auto;
   background-position: -25rem 0;
@@ -160,7 +160,7 @@ export const LandingLastContainer = styled.div`
   ${(props) =>
     !props.darkMode.value &&
     css`
-      background: url('./assets/images/filterCircle.png') no-repeat;
+      background: url('/assets/images/filterCircle.png') no-repeat;
     `}
   background-size: 135% auto;
   background-position: -25rem 0;

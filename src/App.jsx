@@ -12,6 +12,7 @@ import useSWR from 'swr';
 import { fetcher } from './lib/api/fetcher';
 import DarkToggle from './components/DarkToggle';
 import FixedCircle from './components/FixedCircle';
+import Classroom from './pages/Classroom';
 
 const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
@@ -40,7 +41,14 @@ const App = () => {
             <Landing />
           </Route>
           <Route path="/lecture/:category">
-            <Lecture />
+            <Switch>
+              <Route exact path="/lecture/:category">
+                <Lecture />
+              </Route>
+              <Route path="/lecture/:category/classroom/:classroomId">
+                <Classroom />
+              </Route>
+            </Switch>
           </Route>
           <Route
             path="/mypage"
