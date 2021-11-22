@@ -1,7 +1,10 @@
 import React from 'react';
 import { ImFilePicture } from 'react-icons/im';
+import { fetcher } from '../../../lib/api/fetcher';
+import useSWR from 'swr';
 
 const AccountForm = () => {
+  const { data: userData } = useSWR('http://localhost:4000/api/users', fetcher);
   return (
     <div className="account-back">
       <div className="account-title">
@@ -19,7 +22,11 @@ const AccountForm = () => {
             <div className="account-form-contents-right">
               <div className="account-input">
                 <label>이메일</label>
-                <input type="text" placeholder="수정 사항을 입력해주세요" />
+                <input
+                  type="text"
+                  placeholder="수정 사항을 입력해주세요"
+                  defaultValue={userData?.email}
+                />
               </div>
               <div className="account-input">
                 <label>닉네임</label>

@@ -11,6 +11,14 @@ const MyPageClassrooms = ({ classroomData }) => {
       <div className="title">
         <h1>내 강의 목록</h1>
         {!classroomData && <NoLecture />}
+        {classroomData && (
+          <div className="mypage-thumb">
+            <img
+              src={`http://localhost:4000/${classroomData.classrooms[0].thumbUrl}`}
+              alt=""
+            />
+          </div>
+        )}
       </div>
     </MyPageClassroomsContainer>
   );

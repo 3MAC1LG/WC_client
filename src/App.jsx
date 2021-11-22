@@ -11,6 +11,7 @@ import Header from './layout/Header';
 import useSWR from 'swr';
 import { fetcher } from './lib/api/fetcher';
 import DarkToggle from './components/DarkToggle';
+import FixedCircle from './components/FixedCircle';
 
 const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
@@ -29,6 +30,7 @@ const App = () => {
         <GlobalStyles />
         <Header />
         <DarkToggle />
+        <FixedCircle />
         <Switch>
           <Route exact path="/">
             <Main />

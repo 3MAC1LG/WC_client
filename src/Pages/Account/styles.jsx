@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 export const AccountContainer = styled.div`
-  margin-top: 7rem;
+  margin-top: 6rem;
   .account {
     display: flex;
   }
@@ -102,6 +102,7 @@ export const AccountContainer = styled.div`
 export const AccountContainerStyles = (theme) => css`
   .account-title {
     h1 {
+      color: ${theme.font_s};
     }
   }
 
