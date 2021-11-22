@@ -6,7 +6,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import LectureItem from '../../../components/LectureItem';
 import Select from 'react-select';
 
-const LectureList = () => {
+const LectureList = ({ classroom }) => {
   const theme = useTheme();
   const options = [{ value: '프론트엔드', label: 'front' }];
   const customStyles = {
@@ -15,6 +15,10 @@ const LectureList = () => {
       borderRadius: '7rem',
     }),
   };
+
+  if (classroom) {
+    console.log(classroom);
+  }
   return (
     <ListContainer css={ContainerStyles(theme)}>
       <div className="title">
@@ -29,7 +33,13 @@ const LectureList = () => {
           <Select styles={customStyles} options={options} />
         </div>
       </SearchBox>
-      <LectureItem />
+      {classroom && (
+        <div className="lecture-grid">
+          {classroom.map((item, idx) => (
+            <LectureItem key={idx} classroom={item} />
+          ))}
+        </div>
+      )}
     </ListContainer>
   );
 };

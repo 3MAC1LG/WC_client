@@ -7,6 +7,14 @@ export const ListContainer = styled.div`
     font-size: 2.4rem;
     /* font-weight: bold; */
   }
+
+  .lecture-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+    row-gap: 6rem;
+    margin-top: 6rem;
+  }
 `;
 
 export const SearchBox = styled.div`
