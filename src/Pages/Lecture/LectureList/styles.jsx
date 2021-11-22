@@ -1,13 +1,11 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const ListContainer = styled.div`
   flex: 1;
   .title {
     font-size: 2.4rem;
-    color: #8a85ec;
-    span {
-      color: #fed595;
-    }
+    /* font-weight: bold; */
   }
 `;
 
@@ -29,7 +27,6 @@ export const SearchBox = styled.div`
     .glass {
       margin: 0 2rem;
       font-size: 2.4rem;
-      color: #8a85ec;
     }
 
     input {
@@ -43,7 +40,6 @@ export const SearchBox = styled.div`
 
     input::placeholder {
       font-size: 1.6rem;
-      color: #8a85ec;
       opacity: 0.5;
     }
 
@@ -52,24 +48,49 @@ export const SearchBox = styled.div`
     }
   }
 
-  .keyword {
-    width: 15rem;
+  /* .keyword {
+    width: 17rem;
     height: 5rem;
     border: 1px shadow #c1c1c1;
     border-radius: 3rem;
     background-color: #f6f7fc;
-    position: relative;
+    position: relative; */
 
-    select {
-      width: 10rem;
-      position: absolute;
-      top: 1.5rem;
-      left: 2.5rem;
-      border: none;
-      background-color: #f6f7fc;
-      color: #8a85ec;
-      opacity: 0.5;
-      font-size: 1.6rem;
+  select {
+    width: 13rem;
+    position: absolute;
+    top: 1.5rem;
+    left: 2.5rem;
+    border: none;
+    opacity: 0.5;
+    font-size: 1.6rem;
+    background-color: #f6f7fc;
+  }
+
+  select:focus {
+    outline: none;
+  }
+  //}
+`;
+
+export const ContainerStyles = (theme) => css`
+  .title {
+    color: ${theme.font_l};
+    span {
+      color: ${theme.sub};
     }
+  }
+  .search {
+    .glass {
+      color: ${theme.primary};
+    }
+
+    input::placeholder {
+      color: ${theme.primary};
+    }
+  }
+
+  select {
+    color: ${theme.primary};
   }
 `;
