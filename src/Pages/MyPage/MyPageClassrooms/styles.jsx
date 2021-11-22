@@ -3,10 +3,9 @@ import { css } from '@emotion/react';
 
 export const MyPageClassroomsContainer = styled.div`
   margin-bottom: 5rem;
-  flex: 0.9;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
   .title {
     width: 100%;
@@ -41,6 +40,14 @@ export const MyPageClassroomsContainer = styled.div`
     &:hover {
       opacity: 0.9;
     }
+  }
+
+  .mypage-grid {
+    margin-top: 6rem;
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 `;
 
