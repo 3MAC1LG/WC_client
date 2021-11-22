@@ -14,6 +14,7 @@ export const ListContainer = styled.div`
     column-gap: 3rem;
     row-gap: 6rem;
     margin-top: 6rem;
+    margin-bottom: 6rem;
   }
 `;
 

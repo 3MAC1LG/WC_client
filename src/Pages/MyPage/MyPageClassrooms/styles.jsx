@@ -47,7 +47,8 @@ export const MyPageClassroomsContainer = styled.div`
     display: grid;
     flex: 1;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    column-gap: 3rem;
+    row-gap: 6rem;
   }
 `;
 

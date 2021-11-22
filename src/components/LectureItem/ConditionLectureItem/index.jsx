@@ -1,7 +1,6 @@
 import React from 'react';
 import { MdVideoLibrary } from 'react-icons/md';
 import { AiOutlineClockCircle } from 'react-icons/ai';
-import { useLocation } from 'react-router';
 import { MyPageContainer, SearchContainer } from './styles';
 
 const ConditionLectureItem = ({ classroom, type }) => {

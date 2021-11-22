@@ -42,7 +42,10 @@ const Header = ({ history }) => {
             <div className="header-right">
               <ul>
                 <li>
-                  <NavLink activeStyle={{ fontWeight: 'bold' }} to="/lecture">
+                  <NavLink
+                    activeStyle={{ fontWeight: 'bold' }}
+                    to="/lecture/:all"
+                  >
                     강의찾기
                   </NavLink>
                 </li>

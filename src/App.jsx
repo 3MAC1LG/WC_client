@@ -19,10 +19,7 @@ const MyPage = loadable(() => import('./pages/MyPage'));
 const Lecture = loadable(() => import('./pages/Lecture'));
 
 const App = () => {
-  const { data: userData, error } = useSWR(
-    'http://localhost:4000/api/users',
-    fetcher,
-  );
+  const { data: userData } = useSWR('http://localhost:4000/api/users', fetcher);
   const darkMode = useDarkMode(false);
   return (
     <>
@@ -42,7 +39,7 @@ const App = () => {
           <Route path="/landing">
             <Landing />
           </Route>
-          <Route path="/lecture">
+          <Route path="/lecture/:category">
             <Lecture />
           </Route>
           <Route
@@ -53,6 +50,7 @@ const App = () => {
             path="/account"
             render={(props) => userData && <Account {...props} />}
           />
+          <Route path="/classroom/:classroomId" />
         </Switch>
       </ThemeProvider>
     </>
