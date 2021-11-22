@@ -23,11 +23,11 @@ const FixedCircle = () => {
     <FixedCircleContainer>
       {darkMode.value ? (
         <img
-          src="./assets/images/fixedCircleDark.png"
+          src="/assets/images/fixedCircleDark.png"
           alt="fixedCircleDark.png"
         />
       ) : (
-        <img src="./assets/images/fixedCircle.png" alt="fixedCircle.png" />
+        <img src="/assets/images/fixedCircle.png" alt="fixedCircle.png" />
       )}
     </FixedCircleContainer>
   );
