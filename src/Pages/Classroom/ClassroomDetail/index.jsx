@@ -17,8 +17,33 @@ const ClassroomDetail = () => {
             <h1>기초부터 탄탄하게 React</h1>
           </div>
           <div className="classroom-contents-grid">
-            <div className="classroom-video"></div>
-            <div className="classroom-section"></div>
+            <div className="video-desc">
+              <div className="classroom-video"></div>
+              <div className="lecture-info">
+                <div>강의 개수</div>
+                <div>학습 시간</div>
+              </div>
+            </div>
+            <div className="classroom-section">
+              <div className="per-section">
+                <div>섹션 1.리액트의 기초</div>
+                <div>리액트 시작</div>
+                <div>JSX</div>
+                <div>컴포넌트</div>
+              </div>
+              <div className="per-section">
+                <div>섹션 1.리액트의 기초</div>
+                <div>리액트 시작</div>
+                <div>JSX</div>
+                <div>컴포넌트</div>
+              </div>
+              <div className="per-section">
+                <div>섹션 1.리액트의 기초</div>
+                <div>리액트 시작</div>
+                <div>JSX</div>
+                <div>컴포넌트</div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="classroom-studyroom"></div>
