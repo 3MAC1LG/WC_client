@@ -1,13 +1,21 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
 import { MdVideoLibrary } from 'react-icons/md';
 import { AiOutlineClockCircle } from 'react-icons/ai';
-import { MyPageContainer, SearchContainer } from './styles';
+import {
+  MyPageContainer,
+  MyPageStyleContainer,
+  SearchContainer,
+  SearchStyleContainer,
+} from './styles';
+import { useTheme } from '@emotion/react';
 
 const ConditionLectureItem = ({ classroom, type }) => {
+  const theme = useTheme();
   return (
     <div>
       {type.pathname.includes('mypage') ? (
-        <MyPageContainer>
+        <MyPageContainer css={MyPageStyleContainer(theme)}>
           <MdVideoLibrary className="lecture-video" />
           <div>
             <AiOutlineClockCircle className="lecture-time" />
@@ -15,7 +23,7 @@ const ConditionLectureItem = ({ classroom, type }) => {
           </div>
         </MyPageContainer>
       ) : (
-        <SearchContainer>
+        <SearchContainer css={SearchStyleContainer(theme)}>
           <div className="study-info">
             <MdVideoLibrary className="lecture-video" />
             <AiOutlineClockCircle className="lecture-time" />
