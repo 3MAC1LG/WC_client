@@ -28,11 +28,8 @@
     "react-responsive": "^9.0.0-beta.4",
     "react-responsive-modal": "^6.1.0",
     "react-router-dom": "^5.3.0",
-<<<<<<< HEAD
     "react-toastify": "^8.1.0",
-=======
     "react-select": "^5.2.1",
->>>>>>> 3fb93bfd30a0a2f357035418bb441bbd24c74b74
     "swr": "^1.0.1",
     "use-dark-mode": "^2.3.1"
   },
