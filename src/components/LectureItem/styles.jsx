@@ -3,9 +3,9 @@ import { css } from '@emotion/react';
 
 export const LectureItemContainer = styled.div`
   border-radius: 2rem;
+  padding: 3rem;
   .item-title {
     display: flex;
-    padding: 3rem;
     .item-title-left {
       flex: 1;
       display: flex;
