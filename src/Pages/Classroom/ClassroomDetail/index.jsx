@@ -6,7 +6,8 @@ import {
   ClassroomDetailContainerStyles,
   StudyroomStyles,
 } from './styles';
-import { AiOutlineSearch } from 'react-icons/ai';
+import Study from '../Study';
+import Question from '../Question';
 
 const ClassroomDetail = () => {
   const theme = useTheme();
@@ -49,17 +50,8 @@ const ClassroomDetail = () => {
           </div>
         </div>
         <hr />
-        <div className="classroom-studyroom" css={StudyroomStyles(theme)}>
-          <h1>스터디룸</h1>
-          <div className="search-create">
-            <div className="search">
-              <AiOutlineSearch className="glass" />
-              <input type="text" placeholder="원하는 스터디룸을 검색하세요" />
-            </div>
-            <div className="create-button">개설하기</div>
-          </div>
-        </div>
-        <div className="classroom-qna"></div>
+        <Study />
+        <Question />
       </div>
     </ClassroomDetailContainer>
   );
