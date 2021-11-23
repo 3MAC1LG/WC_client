@@ -23,10 +23,6 @@ const NotLogin = loadable(() => import('./pages/NotLogin'));
 const App = () => {
   const { data: userData } = useSWR('http://localhost:4000/api/users', fetcher);
   const darkMode = useDarkMode(false);
-
-  if (userData) {
-    console.log(userData);
-  }
   return (
     <>
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
@@ -67,7 +63,13 @@ const App = () => {
           </Route>
           <Route
             path="/account"
-            render={(props) => userData && <Account {...props} />}
+            render={(props) =>
+              userData ? (
+                <Account {...props} />
+              ) : (
+                <Redirect path="/account" to="/login" />
+              )
+            }
           />
           <Route path="*">
             <NotFound />

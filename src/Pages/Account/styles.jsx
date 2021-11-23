@@ -37,12 +37,33 @@ export const AccountContainer = styled.div`
               border-radius: 7rem;
               svg {
                 font-size: 2.5rem;
-                cursor: pointer;
+              }
+              img {
+                width: 100%;
               }
             }
-            p {
-              padding-top: 1.5rem;
-              font-size: 1.5rem;
+            .profile-filebox {
+              margin-top: 1.5rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              label {
+                display: inline-block;
+                padding: 1rem 1rem;
+                vertical-align: middle;
+                cursor: pointer;
+                height: 4rem;
+                margin-left: 1rem;
+                font-size: 1.5rem;
+              }
+              input[type='file'] {
+                position: absolute;
+                width: 0;
+                height: 0;
+                padding: 0;
+                overflow: hidden;
+                border: 0;
+              }
             }
           }
           .account-form-contents-right {
@@ -97,6 +118,13 @@ export const AccountContainer = styled.div`
       }
     }
   }
+
+  .Toastify__toast-container {
+    width: 40rem;
+    height: 15rem;
+
+    font-size: 2rem;
+  }
 `;
 
 export const AccountContainerStyles = (theme) => css`
@@ -117,8 +145,12 @@ export const AccountContainerStyles = (theme) => css`
               color: ${theme.primary};
             }
           }
-          p {
-            color: #838383;
+          .profile-filebox {
+            label {
+              color: #838383;
+            }
+            input[type='file'] {
+            }
           }
         }
         .account-form-contents-right {
@@ -138,5 +170,10 @@ export const AccountContainerStyles = (theme) => css`
         }
       }
     }
+  }
+
+  .Toastify__toast--default {
+    background: #fff;
+    color: #17090e;
   }
 `;
