@@ -90,6 +90,7 @@ export const ContainerStyles = (theme) => css`
     }
   }
   .search {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     .glass {
       color: ${theme.primary};
     }

@@ -4,7 +4,9 @@ import React from 'react';
 import {
   ClassroomDetailContainer,
   ClassroomDetailContainerStyles,
+  StudyroomStyles,
 } from './styles';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const ClassroomDetail = () => {
   const theme = useTheme();
@@ -46,7 +48,17 @@ const ClassroomDetail = () => {
             </div>
           </div>
         </div>
-        <div className="classroom-studyroom"></div>
+        <hr />
+        <div className="classroom-studyroom" css={StudyroomStyles(theme)}>
+          <h1>스터디룸</h1>
+          <div className="search-create">
+            <div className="search">
+              <AiOutlineSearch className="glass" />
+              <input type="text" placeholder="원하는 스터디룸을 검색하세요" />
+            </div>
+            <div className="create-button">개설하기</div>
+          </div>
+        </div>
         <div className="classroom-qna"></div>
       </div>
     </ClassroomDetailContainer>
