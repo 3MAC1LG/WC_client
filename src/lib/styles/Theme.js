@@ -17,6 +17,8 @@ export const dark = {
   border: '#F0F1F4',
   contents: '#F0F1F4',
   font_b: '#292A2D',
+  search: '#292A2D',
+  font_m: '#F0F1F4',
 };
 
 /**
@@ -37,7 +39,9 @@ export const light = {
   active: '#8A85EC',
   border: '#F1F3F9',
   contents: '#ECEEF6',
-  font_b: '8A85EC',
+  font_b: '#8A85EC',
+  search: '#F6F7FC',
+  font_m: '#FCFDFE',
 };
 
 const mode = {
