@@ -65,7 +65,11 @@ const Header = ({ history }) => {
                       </div>
                     </div>
                   ) : (
-                    <button onClick={() => onPush('login')}>로그인</button>
+                    <button onClick={() => onPush('login')}>
+                      <NavLink activeStyle={{ fontWeight: 'bold' }} to="/login">
+                        로그인
+                      </NavLink>
+                    </button>
                   )}
                 </li>
               </ul>

@@ -6,6 +6,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 1.2rem;
   background-color: #fee500;
+  cursor: pointer;
   .box {
     display: flex;
     justify-content: space-between;
