@@ -3,6 +3,7 @@ import React from 'react';
 import { ListStyleDark, ListStyles } from './styles';
 import { FaUser } from 'react-icons/fa';
 import { useTheme } from '@emotion/react';
+import Responsive from '../../../../lib/styles/Responsive';
 
 const StudyList = () => {
   const theme = useTheme();
