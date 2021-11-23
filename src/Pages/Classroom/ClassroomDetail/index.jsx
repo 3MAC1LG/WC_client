@@ -6,9 +6,8 @@ import {
   ClassroomDetailContainerStyles,
   StudyroomStyles,
 } from './styles';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { MdLockOpen } from 'react-icons/md';
-import { FaUser } from 'react-icons/fa';
+import Study from '../Study';
+import Question from '../Question';
 
 const ClassroomDetail = () => {
   const theme = useTheme();
@@ -51,76 +50,8 @@ const ClassroomDetail = () => {
           </div>
         </div>
         <hr />
-        <div className="classroom-studyroom" css={StudyroomStyles(theme)}>
-          <h1>스터디룸</h1>
-          <div className="search-create">
-            <div className="search">
-              <AiOutlineSearch className="glass" />
-              <input type="text" placeholder="원하는 스터디룸을 검색하세요" />
-            </div>
-            <div className="create-button">개설하기</div>
-          </div>
-          <div className="studyroom">
-            <div className="open-studyroom">
-              <div className="open-title">
-                <MdLockOpen />
-                <div className="title-text">Open 스터디룸</div>
-              </div>
-              <div className="studyroom-list">
-                <div className="studyroom-item">
-                  <div className="image"></div>
-                  <div className="content">
-                    <div className="studyroom-title">
-                      <div className="room-title">함께공부해요!!</div>
-                      <div>2강.JSX</div>
-                    </div>
-                    <div className="room-user-info">
-                      <div className="owner">
-                        <FaUser />
-                        <div>Michael</div>
-                      </div>
-                      <div>4명 참여중</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="studyroom-item">
-                  <div className="image"></div>
-                  <div className="content">
-                    <div className="studyroom-title">
-                      <div className="room-title">함께공부해요!!</div>
-                      <div>2강.JSX</div>
-                    </div>
-                    <div className="room-user-info">
-                      <div className="owner">
-                        <FaUser />
-                        <div>Michael</div>
-                      </div>
-                      <div>4명 참여중</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="studyroom-item">
-                  <div className="image"></div>
-                  <div className="content">
-                    <div className="studyroom-title">
-                      <div className="room-title">함께공부해요!!</div>
-                      <div>2강.JSX</div>
-                    </div>
-                    <div className="room-user-info">
-                      <div className="owner">
-                        <FaUser />
-                        <div>Michael</div>
-                      </div>
-                      <div>4명 참여중</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="private-studyroom"></div>
-          </div>
-        </div>
-        <div className="classroom-qna"></div>
+        <Study />
+        <Question />
       </div>
     </ClassroomDetailContainer>
   );
