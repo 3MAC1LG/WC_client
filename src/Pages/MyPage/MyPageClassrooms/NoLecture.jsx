@@ -1,4 +1,3 @@
-import { useTheme } from '@emotion/react';
 import React from 'react';
 import LottieLanding from '../../../lottie/LottieLanding';
 

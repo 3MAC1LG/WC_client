@@ -1,27 +1,32 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import useDarkMode from 'use-dark-mode';
 import GlobalStyles from './lib/styles/global';
 import loadable from '@loadable/component';
 import { ThemeProvider } from '@emotion/react';
 import Theme from './lib/styles/Theme';
-import Main from './pages/Main';
 import Landing from './pages/Landing';
 import Header from './layout/Header';
 import useSWR from 'swr';
 import { fetcher } from './lib/api/fetcher';
 import DarkToggle from './components/DarkToggle';
 import FixedCircle from './components/FixedCircle';
-import Classroom from './pages/Classroom';
+import MyPage from './pages/MyPage';
 
 const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
-const MyPage = loadable(() => import('./pages/MyPage'));
 const Lecture = loadable(() => import('./pages/Lecture'));
+const Classroom = loadable(() => import('./pages/Classroom'));
+const NotFound = loadable(() => import('./pages/NotFound'));
+const NotLogin = loadable(() => import('./pages/NotLogin'));
 
 const App = () => {
   const { data: userData } = useSWR('http://localhost:4000/api/users', fetcher);
   const darkMode = useDarkMode(false);
+
+  if (userData) {
+    console.log(userData);
+  }
   return (
     <>
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
@@ -30,12 +35,22 @@ const App = () => {
         <DarkToggle />
         <FixedCircle />
         <Switch>
-          <Route exact path="/">
-            <Main />
-          </Route>
+          <Redirect exact path="/" to="/mypage" />
+          <Route
+            path="/mypage"
+            render={(props) =>
+              userData ? <MyPage {...props} /> : <NotLogin />
+            }
+          />
           <Route
             path="/login"
-            render={(props) => !userData && <Login {...props} />}
+            render={(props) =>
+              !userData ? (
+                <Login {...props} />
+              ) : (
+                <Redirect path="/login" to="/mypage" />
+              )
+            }
           />
           <Route path="/landing">
             <Landing />
@@ -51,14 +66,12 @@ const App = () => {
             </Switch>
           </Route>
           <Route
-            path="/mypage"
-            render={(props) => userData && <MyPage {...props} />}
-          />
-          <Route
             path="/account"
             render={(props) => userData && <Account {...props} />}
           />
-          <Route path="/classroom/:classroomId" />
+          <Route path="*">
+            <NotFound />
+          </Route>
         </Switch>
       </ThemeProvider>
     </>
