@@ -1,17 +1,18 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from 'react';
-import { QuestionListDark, QuestionListStyles } from './styles';
+import React, { useCallback, useEffect, useState } from 'react';
+import { ModalStyle, QuestionListDark, QuestionListStyles } from './styles';
 import { AiFillLike } from 'react-icons/ai';
 import { useTheme } from '@emotion/react';
-import Responsive from '../../../../lib/styles/Responsive';
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import QuestionModal from './QuestionModal';
 
 const QuestionList = () => {
   const theme = useTheme();
 
-  // const [modal, setModal] = useState(false);
-  // const onShowModal = () => {
-  //   setModal(!modal);
-  // };
+  const [open, setOpen] = useState(false);
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
   return (
     <QuestionListStyles css={QuestionListDark(theme)}>
       <div className="question-box">
@@ -25,7 +26,19 @@ const QuestionList = () => {
             <AiFillLike className="like-icon" />
             <div>13</div>
           </div>
-          <div className="question-response-check">답변완료</div>
+          <button className="question-response-check" onClick={onOpenModal}>
+            답변완료
+          </button>
+          <div>
+            <Modal
+              open={open}
+              onClose={onCloseModal}
+              center
+              classNames={{ modal: 'customModal' }}
+            >
+              <QuestionModal />
+            </Modal>
+          </div>
         </div>
       </div>
     </QuestionListStyles>

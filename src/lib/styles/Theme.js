@@ -20,6 +20,7 @@ export const dark = {
   search: '#292A2D',
   font_m: '#F0F1F4',
   font_u: '#F0F1F4',
+  modal_b: '#292A2D',
 };
 
 /**
@@ -44,6 +45,7 @@ export const light = {
   search: '#F6F7FC',
   font_m: '#FCFDFE',
   font_u: '#1C0F12',
+  modal_b: '#FFFFFF',
 };
 
 const mode = {

@@ -39,6 +39,7 @@ export const QuestionListStyles = styled.div`
       }
 
       .question-response-check {
+        border: none;
         display: flex;
         justify-content: center;
         align-items: center;

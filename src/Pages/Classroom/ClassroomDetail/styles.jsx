@@ -54,7 +54,7 @@ export const ClassroomDetailContainer = styled.div`
               background-color: #f6f7fc;
               border-bottom: 1px solid #eaeaea;
             }
-            div:first-child {
+            div:first-of-type {
               padding-left: 2rem;
               background-color: #eceef6;
             }

@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useTheme } from '@emotion/react';
 import React from 'react';
-import StudyroomModal from '../../../components/StudyroomModal';
 import Responsive from '../../../lib/styles/Responsive';
 import QuestionList from './QuestionList';
 import { QuestionDark, QuestionStyles } from './styles';
@@ -19,7 +18,6 @@ const Question = () => {
         <QuestionList />
         <QuestionList />
       </div>
-      <StudyroomModal />
     </QuestionStyles>
   );
 };
