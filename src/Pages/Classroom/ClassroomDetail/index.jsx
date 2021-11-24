@@ -8,6 +8,7 @@ import {
 } from './styles';
 import Study from '../Study';
 import Question from '../Question';
+import Responsive from '../../../lib/styles/Responsive';
 
 const ClassroomDetail = () => {
   const theme = useTheme();
@@ -51,6 +52,7 @@ const ClassroomDetail = () => {
         </div>
         <hr />
         <Study />
+        <hr />
         <Question />
       </div>
     </ClassroomDetailContainer>

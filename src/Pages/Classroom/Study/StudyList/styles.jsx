@@ -6,9 +6,14 @@ export const ListStyles = styled.div`
     margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 3rem;
+    grid-gap: 2rem;
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .studyroom-item {
-      height: 28rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       background-color: #fcfdfe;
       border-radius: 1rem;
 
@@ -20,29 +25,26 @@ export const ListStyles = styled.div`
       }
 
       .content {
+        display: flex;
+        flex-direction: column;
         margin: 2rem;
+
         .studyroom-title {
           display: flex;
           justify-content: space-between;
-          font-size: 2rem;
 
-          .room-title {
-            font-weight: bold;
-          }
+          font-size: 1.8rem;
+          margin-bottom: 3rem;
         }
-
         .room-user-info {
           display: flex;
           justify-content: space-between;
-          font-size: 1.7rem;
-          margin-top: 4.5rem;
+          align-items: center;
+          font-size: 1.6rem;
 
           .owner {
             display: flex;
-            align-items: center;
-            div {
-              margin-left: 0.5rem;
-            }
+            justify-content: space-between;
           }
         }
       }

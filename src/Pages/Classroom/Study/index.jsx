@@ -7,6 +7,7 @@ import { FaUser } from 'react-icons/fa';
 import { StudyroomContainer, StudyroomStyles } from './styles';
 import { useTheme } from '@emotion/react';
 import StudyList from './StudyList';
+import Responsive from '../../../lib/styles/Responsive';
 
 const Study = () => {
   const theme = useTheme();

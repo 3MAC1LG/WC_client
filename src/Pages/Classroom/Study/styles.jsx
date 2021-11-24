@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const StudyroomContainer = styled.div`
+  margin-bottom: 8rem;
   .classroom-studyroom {
     margin-top: 2rem;
     h1 {
