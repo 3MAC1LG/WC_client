@@ -25,6 +25,7 @@ export default NotFound;
 
 const NotFoundContainer = styled.div`
   margin-top: 6rem;
+  margin-bottom: 6rem;
   .not-found {
     display: flex;
     flex-direction: column;

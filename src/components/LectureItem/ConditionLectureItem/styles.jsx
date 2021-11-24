@@ -46,8 +46,7 @@ export const MyPageContainer = styled.div`
       display: flex;
       justify-content: center;
       border-radius: 3rem;
-      width: 15rem;
-      height: 5rem;
+      padding: 3rem;
       font-size: 1.5rem;
       color: white;
       background-color: #8a85ec;

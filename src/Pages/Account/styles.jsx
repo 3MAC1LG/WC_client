@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 
 export const AccountContainer = styled.div`
   margin-top: 6rem;
+  margin-bottom: 6rem;
   .account {
     display: flex;
   }
@@ -38,8 +39,22 @@ export const AccountContainer = styled.div`
               svg {
                 font-size: 2.5rem;
               }
-              img {
-                width: 100%;
+            }
+            .profile-userBack {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 2.75rem;
+              border-radius: 7rem;
+              .profile-userBack-inner {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 7rem;
+                height: 7rem;
+                img {
+                  width: 100%;
+                }
               }
             }
             .profile-filebox {
@@ -144,6 +159,9 @@ export const AccountContainerStyles = (theme) => css`
             svg {
               color: ${theme.primary};
             }
+          }
+          .profile-userBack {
+            background: #fff;
           }
           .profile-filebox {
             label {

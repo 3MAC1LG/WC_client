@@ -59,10 +59,22 @@ const Header = ({ history }) => {
                 <li>
                   {userData ? (
                     <div className="header-user">
-                      <div className="header-user-back" onClick={onModal}>
-                        <BiUser />
-                        {modal && <Modal modal={modal} setModal={setModal} />}
-                      </div>
+                      {userData.profileImg ? (
+                        <div className="header-user-back" onClick={onModal}>
+                          <div className="header-user-profile">
+                            <img
+                              src={`http://localhost:4000/${userData.profileImg}`}
+                              alt="profile"
+                            />
+                          </div>
+                          {modal && <Modal modal={modal} setModal={setModal} />}
+                        </div>
+                      ) : (
+                        <div className="header-user-back" onClick={onModal}>
+                          <BiUser />
+                          {modal && <Modal modal={modal} setModal={setModal} />}
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <button onClick={() => onPush('login')}>

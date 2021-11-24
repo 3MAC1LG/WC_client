@@ -20,6 +20,9 @@ const styles = (theme) => css`
     @media screen and (max-width: 480px) {
       font-size: 25%;
     }
+    @media screen and (max-width: 480px) {
+      font-size: 20%;
+    }
   }
 
   * {
