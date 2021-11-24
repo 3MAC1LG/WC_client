@@ -6,7 +6,10 @@ export const ListStyles = styled.div`
     margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 3rem;
+    grid-gap: 2rem;
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
     .studyroom-item {
       display: flex;
       flex-direction: column;
