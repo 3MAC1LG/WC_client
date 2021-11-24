@@ -2,17 +2,14 @@
 import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { Redirect, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
 import { ModalBackground } from './styles';
-import { get_logout, reset } from '../../reducers/userSlice';
+import { get_logout } from '../../reducers/userSlice';
 import useSWR from 'swr';
 import { fetcher } from '../../lib/api/fetcher';
 
-const Modal = ({ history, modal, setModal }) => {
-  const { data: userData, mutate } = useSWR(
-    'http://localhost:4000/api/users',
-    fetcher,
-  );
+const Modal = ({ history, setModal }) => {
+  const { mutate } = useSWR('http://localhost:4000/api/users', fetcher);
   const logout = useSelector((state) => state.users.logout);
   const dispatch = useDispatch();
 

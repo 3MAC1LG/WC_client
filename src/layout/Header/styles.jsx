@@ -26,8 +26,11 @@ export const HeaderContainer = styled.div`
         justify-content: flex-end;
         font-size: 1.5rem;
         li {
+          display: flex;
+          align-items: center;
           padding-left: 10rem;
           a {
+            line-height: 1;
             color: #fff;
           }
           button {
@@ -40,6 +43,17 @@ export const HeaderContainer = styled.div`
           }
           .header-user {
             position: relative;
+            .header-user-profile {
+              width: 2rem;
+              height: 2rem;
+              border-radius: 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              img {
+                width: 100%;
+              }
+            }
             .header-user-back {
               display: flex;
               align-items: center;

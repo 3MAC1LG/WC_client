@@ -31,6 +31,8 @@ export default withRouter(NotLogin);
 
 const NotLoginContainer = styled.div`
   margin-top: 6rem;
+  margin-bottom: 6rem;
+
   .not-login {
     display: flex;
     flex-direction: column;
