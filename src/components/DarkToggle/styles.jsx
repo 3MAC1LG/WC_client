@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 
 export const DarkToggleContainer = (theme) => css`
   position: fixed;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 6.5rem;
   height: 6.5rem;
   right: 6rem;

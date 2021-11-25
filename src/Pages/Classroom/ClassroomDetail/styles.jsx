@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const ClassroomDetailContainer = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   border-radius: 1.2rem;

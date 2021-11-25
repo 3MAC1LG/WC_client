@@ -25,10 +25,7 @@ const LectureItem = ({ history, classroom }) => {
             <h1>{classroom.name}</h1>
           </div>
           <div className="item-title-right">
-            <img
-              src={`http://localhost:4000/${classroom.classroomImg}`}
-              alt="classThumb.png"
-            />
+            <img src={`/${classroom.classroomImg}`} alt="classThumb.png" />
           </div>
         </div>
         <ConditionLectureItem classroom={classroom} type={location} />
