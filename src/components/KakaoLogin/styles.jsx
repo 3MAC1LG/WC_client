@@ -9,17 +9,18 @@ export const Button = styled.button`
   cursor: pointer;
   .box {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 2rem;
+
     .symbol {
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-right: 8rem;
     }
     .label {
       color: #000000;
       opacity: 0.85;
-      margin-right: 10rem;
-      font-size: 1.7rem;
+      font-size: 1.9rem;
     }
   }
 `;

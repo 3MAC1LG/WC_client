@@ -7,7 +7,7 @@ const KakaoLogin = () => {
       <Button>
         <div className="box">
           <BsFillChatFill className="symbol" />
-          <div className="label">카카오 로그인</div>
+          <span className="label">카카오 로그인</span>
         </div>
       </Button>
     </a>
