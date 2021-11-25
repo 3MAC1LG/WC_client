@@ -1,17 +1,24 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTheme } from '@emotion/react';
 import { LectureItemContainer, LectureItemContainerStyles } from './styles';
 import ConditionLectureItem from './ConditionLectureItem';
-import { useLocation } from 'react-router';
+import { useLocation, withRouter } from 'react-router';
 
-const LectureItem = ({ classroom }) => {
+const LectureItem = ({ history, classroom }) => {
   const theme = useTheme();
   const location = useLocation();
 
+  const onPush = useCallback(() => {
+    history.push(`/lecture/:${classroom.category}/classroom/:${classroom.id}`);
+  }, [history]);
+
   return (
     classroom && (
-      <LectureItemContainer css={LectureItemContainerStyles(theme)}>
+      <LectureItemContainer
+        onClick={onPush}
+        css={LectureItemContainerStyles(theme)}
+      >
         <div className="item-title">
           <div className="item-title-left">
             <p>{classroom.category}</p>
@@ -30,4 +37,4 @@ const LectureItem = ({ classroom }) => {
   );
 };
 
-export default LectureItem;
+export default React.memo(withRouter(LectureItem));

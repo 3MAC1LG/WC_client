@@ -3,18 +3,12 @@ import React, { useCallback } from 'react';
 import { PaginationContainer, PaginationContainerStyles } from './styles';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useTheme } from '@emotion/react';
-import { NavLink } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
-const PaginationItem = ({ history, page, category }) => {
+const PaginationItem = ({ page, category }) => {
   return (
     <div className="page">
-      <NavLink
-        // activeStyle={{ fontWeight: 'bold' }}
-        to={`/lecture/${category}?page=${page}`}
-      >
-        {page}
-      </NavLink>
+      <NavLink to={`/lecture/${category}?page=${page}`}>{page}</NavLink>
     </div>
   );
 };
