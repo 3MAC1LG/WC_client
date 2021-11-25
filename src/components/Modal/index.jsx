@@ -9,7 +9,7 @@ import useSWR from 'swr';
 import { fetcher } from '../../lib/api/fetcher';
 
 const Modal = ({ history, setModal }) => {
-  const { mutate } = useSWR('http://localhost:4000/api/users', fetcher);
+  const { mutate } = useSWR('/api/users', fetcher);
   const logout = useSelector((state) => state.users.logout);
   const dispatch = useDispatch();
 

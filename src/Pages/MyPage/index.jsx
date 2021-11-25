@@ -7,9 +7,9 @@ import Menu from '../../components/Menu';
 import MyPageClassrooms from './MyPageClassrooms';
 
 const MyPage = () => {
-  const { data: userData } = useSWR('http://localhost:4000/api/users', fetcher);
+  const { data: userData } = useSWR('/api/users', fetcher);
   const { data: classroomData } = useSWR(
-    userData ? `http://localhost:4000/api/classrooms/:${userData.id}` : null,
+    userData ? `/api/classrooms/:${userData.id}` : null,
     fetcher,
   );
 

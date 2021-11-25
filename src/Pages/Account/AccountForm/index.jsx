@@ -14,10 +14,7 @@ const AccountForm = () => {
     reset,
     handleSubmit,
   } = useForm();
-  const { data: userData, mutate } = useSWR(
-    'http://localhost:4000/api/users',
-    fetcher,
-  );
+  const { data: userData, mutate } = useSWR('/api/users', fetcher);
   const [profile, setProfile] = useState(null);
   const [nicknName, setNickName] = useState(
     userData?.nicknName ? userData.nickname : '',
@@ -29,7 +26,7 @@ const AccountForm = () => {
     formData.append('file', file[0]);
 
     await axios
-      .post('http://localhost:4000/api/users/upload', formData, {
+      .post('/api/users/upload', formData, {
         withCredentials: true,
       })
       .then((res) => {
@@ -66,10 +63,7 @@ const AccountForm = () => {
                 {userData?.profileImg ? (
                   <div className="profile-userBack">
                     <div className="profile-userBack-inner">
-                      <img
-                        src={`http://localhost:4000/${userData.profileImg}`}
-                        alt="profile"
-                      />
+                      <img src={`/${userData.profileImg}`} alt="profile" />
                     </div>
                   </div>
                 ) : (

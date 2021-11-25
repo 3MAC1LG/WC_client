@@ -17,11 +17,13 @@ const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
 const Lecture = loadable(() => import('./pages/Lecture'));
 const Classroom = loadable(() => import('./pages/Classroom'));
+const Studyroom = loadable(() => import('./pages/Studyroom'));
+const StudyroomForm = loadable(() => import('./pages/StudyroomForm'));
 const NotFound = loadable(() => import('./pages/NotFound'));
 const NotLogin = loadable(() => import('./pages/NotLogin'));
 
 const App = () => {
-  const { data: userData } = useSWR('http://localhost:4000/api/users', fetcher);
+  const { data: userData } = useSWR('/api/users', fetcher);
   const darkMode = useDarkMode(false);
   return (
     <>
@@ -71,6 +73,37 @@ const App = () => {
               )
             }
           />
+          <Route path="/classroom/:classroomId">
+            <Switch>
+              <Route
+                exact
+                path="/classroom/:classroomId/studyroom"
+                render={(props) =>
+                  userData ? (
+                    <StudyroomForm {...props} />
+                  ) : (
+                    <Redirect
+                      path="/classroom/:classroomId/studyroom"
+                      to="/login"
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/classroom/:classroomId/studyroom/:studyroomId"
+                render={(props) =>
+                  userData ? (
+                    <Studyroom {...props} />
+                  ) : (
+                    <Redirect
+                      path="/classroom/:classroomId/studyroom"
+                      to="/login"
+                    />
+                  )
+                }
+              />
+            </Switch>
+          </Route>
           <Route path="*">
             <NotFound />
           </Route>

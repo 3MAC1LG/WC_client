@@ -16,9 +16,7 @@ const Lecture = () => {
   const query = qs.parse(search, { ignoreQueryPrefix: true });
   const page = parseInt(query.page) || 1;
   const { data: classroomData, mutate } = useSWR(
-    `http://localhost:4000/api/classrooms?category=${category.slice(
-      1,
-    )}&page=${page}`,
+    `/api/classrooms?category=${category.slice(1)}&page=${page}`,
     fetcher,
   );
   const size = Math.ceil(classroomData?.data[1] / 8);
@@ -31,7 +29,7 @@ const Lecture = () => {
       <Responsive>
         <div className="lecture">
           <Menu />
-          {classroomData && (
+          {classroomData && classroomData.data[0] && (
             <div className="lecture-layout">
               <LectureList classroom={classroomData.data[0]} />
               <Pagination page={page} category={category} size={size} />

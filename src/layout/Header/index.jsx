@@ -11,11 +11,7 @@ import { BiUser } from 'react-icons/bi';
 import Modal from '../../components/Modal';
 
 const Header = ({ history }) => {
-  const {
-    data: userData,
-    error,
-    mutate,
-  } = useSWR('http://localhost:4000/api/users', fetcher);
+  const { data: userData, error, mutate } = useSWR('/api/users', fetcher);
   const [modal, setModal] = useState(false);
   const theme = useTheme();
   const onPush = useCallback(
@@ -63,7 +59,7 @@ const Header = ({ history }) => {
                         <div className="header-user-back" onClick={onModal}>
                           <div className="header-user-profile">
                             <img
-                              src={`http://localhost:4000/${userData.profileImg}`}
+                              src={`/${userData.profileImg}`}
                               alt="profile"
                             />
                           </div>

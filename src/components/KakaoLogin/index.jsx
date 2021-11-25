@@ -3,7 +3,7 @@ import { Button } from './styles';
 import { BsFillChatFill } from 'react-icons/bs';
 const KakaoLogin = () => {
   return (
-    <a href="http://localhost:4000/oauth/kakao">
+    <a href="/oauth/kakao">
       <Button>
         <div className="box">
           <BsFillChatFill className="symbol" />
