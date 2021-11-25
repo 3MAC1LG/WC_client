@@ -52,7 +52,7 @@ export const StudyroomContainer = styled.div`
         align-items: center;
         justify-content: center;
         border-radius: 3rem;
-        width: 12rem;
+        width: 14rem;
         height: 5rem;
         font-size: 1.8rem;
       }

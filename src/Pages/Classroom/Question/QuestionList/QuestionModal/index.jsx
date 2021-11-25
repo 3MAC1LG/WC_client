@@ -3,8 +3,9 @@ import { useTheme } from '@emotion/react';
 import React from 'react';
 import { ModalContainer, ModalDark } from './styles';
 
-const QuestionModal = () => {
+const QuestionModal = ({ setOpen }) => {
   const theme = useTheme();
+  const onClose = () => setOpen(false);
   return (
     <ModalContainer css={ModalDark(theme)}>
       <div className="modal-header">
@@ -18,6 +19,9 @@ const QuestionModal = () => {
       <div className="modal-footer">
         <div className="answer">답변</div>
         <div className="comment">강의자료 18페이지를 참고하세요.</div>
+        <div className="close" onClick={onClose}>
+          닫기
+        </div>
       </div>
     </ModalContainer>
   );

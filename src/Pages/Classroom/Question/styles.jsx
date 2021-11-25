@@ -15,7 +15,7 @@ export const QuestionStyles = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 15rem;
+      width: 17rem;
       height: 5rem;
       border-radius: 3rem;
       font-size: 2rem;

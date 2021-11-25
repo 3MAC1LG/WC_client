@@ -43,10 +43,15 @@ export const QuestionListStyles = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        border: none;
         border-radius: 3rem;
         font-size: 1.6rem;
         width: 12rem;
         height: 5rem;
+      }
+
+      .react-responsive-modal-modal {
+        padding: 0;
       }
     }
   }
