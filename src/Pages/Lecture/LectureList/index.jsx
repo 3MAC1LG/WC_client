@@ -15,10 +15,6 @@ const LectureList = ({ classroom }) => {
       borderRadius: '7rem',
     }),
   };
-
-  if (classroom) {
-    console.log(classroom);
-  }
   return (
     <ListContainer css={ContainerStyles(theme)}>
       <div className="title">

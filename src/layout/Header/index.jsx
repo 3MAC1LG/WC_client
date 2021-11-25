@@ -44,7 +44,7 @@ const Header = ({ history }) => {
                 <li>
                   <NavLink
                     activeStyle={{ fontWeight: 'bold' }}
-                    to="/lecture/:all"
+                    to="/lecture/:all?page=1"
                   >
                     강의찾기
                   </NavLink>

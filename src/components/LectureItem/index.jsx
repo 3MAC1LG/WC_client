@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { useTheme } from '@emotion/react';
 import React from 'react';
+import { useTheme } from '@emotion/react';
 import { LectureItemContainer, LectureItemContainerStyles } from './styles';
 import ConditionLectureItem from './ConditionLectureItem';
 import { useLocation } from 'react-router';
@@ -8,9 +8,6 @@ import { useLocation } from 'react-router';
 const LectureItem = ({ classroom }) => {
   const theme = useTheme();
   const location = useLocation();
-  if (classroom) {
-    console.log(classroom);
-  }
 
   return (
     classroom && (
@@ -18,11 +15,11 @@ const LectureItem = ({ classroom }) => {
         <div className="item-title">
           <div className="item-title-left">
             <p>{classroom.category}</p>
-            <h1>{classroom.title}</h1>
+            <h1>{classroom.name}</h1>
           </div>
           <div className="item-title-right">
             <img
-              src={`http://localhost:4000/${classroom.thumbUrl}`}
+              src={`http://localhost:4000/${classroom.classroomImg}`}
               alt="classThumb.png"
             />
           </div>
