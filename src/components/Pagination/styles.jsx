@@ -65,7 +65,7 @@ export const PaginationContainerStyles = (theme) => css`
       opacity: 0.25;
     }
     svg {
-      color: ${theme.primary};
+      color: ${theme.header};
     }
   }
   .next {
@@ -76,12 +76,12 @@ export const PaginationContainerStyles = (theme) => css`
       opacity: 0.25;
     }
     svg {
-      color: ${theme.primary};
+      color: ${theme.header};
     }
   }
   .page {
     a {
-      color: ${theme.primary};
+      color: ${theme.header};
     }
     &:hover {
       background: rgba(138, 133, 236, 0.15);

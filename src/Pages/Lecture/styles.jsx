@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 export const LectureContainer = styled.div`
   margin-top: 6rem;
+  margin-bottom: 4rem;
 
   .lecture {
     display: flex;
