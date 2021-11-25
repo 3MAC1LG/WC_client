@@ -2,11 +2,14 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 export const Container = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; */
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top: 15rem;
+  margin-top: 25rem;
 
   .logo {
     margin-bottom: 10rem;
