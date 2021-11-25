@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const LectureContainer = styled.div`
@@ -5,5 +6,13 @@ export const LectureContainer = styled.div`
 
   .lecture {
     display: flex;
+    .lecture-layout {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 `;
+
+export const LecturePagenationStyles = (theme) => css``;

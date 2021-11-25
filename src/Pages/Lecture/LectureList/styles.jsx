@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 export const ListContainer = styled.div`
-  flex: 1;
   .title {
     font-size: 2.4rem;
     /* font-weight: bold; */

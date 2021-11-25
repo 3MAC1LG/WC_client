@@ -15,7 +15,7 @@ const MyPageClassrooms = ({ classroomData }) => {
       </div>
       {classroomData && (
         <div className="mypage-grid">
-          {classroomData.classrooms.map((item, idx) => (
+          {classroomData?.classrooms?.map((item, idx) => (
             <LectureItem key={idx} classroom={item} />
           ))}
         </div>

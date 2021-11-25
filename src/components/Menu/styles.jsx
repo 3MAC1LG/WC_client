@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 
 export const MenuContainer = styled.div`
   padding-right: 6rem;
+  z-index: 800;
   ul {
     display: flex;
     flex-direction: column;
