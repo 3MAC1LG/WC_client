@@ -4,17 +4,10 @@ import React from 'react';
 import { ContainerStyles, ListContainer, SearchBox } from './styles';
 import { AiOutlineSearch } from 'react-icons/ai';
 import LectureItem from '../../../components/LectureItem';
-import Select from 'react-select';
 
 const LectureList = ({ classroom }) => {
   const theme = useTheme();
-  const options = [{ value: '프론트엔드', label: 'front' }];
-  const customStyles = {
-    container: (provided, state) => ({
-      ...provided,
-      borderRadius: '7rem',
-    }),
-  };
+
   return (
     <ListContainer css={ContainerStyles(theme)}>
       <div className="title">
@@ -24,9 +17,6 @@ const LectureList = ({ classroom }) => {
         <div className="search">
           <AiOutlineSearch className="glass" />
           <input type="text" placeholder="원하는 강의를 검색하세요" />
-        </div>
-        <div className="keyword">
-          <Select styles={customStyles} options={options} />
         </div>
       </SearchBox>
       {classroom && (
