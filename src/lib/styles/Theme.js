@@ -22,6 +22,9 @@ export const dark = {
   font_u: '#F0F1F4',
   modal_b: '#292A2D',
   font_h: '#F0F1F4',
+  font_y: '#F0F1F4',
+  font_d: '#292A2D',
+  btn_y: '#787A81',
 };
 
 /**
@@ -48,6 +51,9 @@ export const light = {
   font_u: '#1C0F12',
   modal_b: '#FFFFFF',
   font_h: '#17090E',
+  font_y: '#FED595',
+  font_d: '#313131',
+  btn_y: '#FED595',
 };
 
 const mode = {
