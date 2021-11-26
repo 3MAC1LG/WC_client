@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import modalSlice from './modalSlice';
 import userSlice from './userSlice';
+import classroomSlice from './classroomSlice';
 
 const store = configureStore({
   reducer: {
     users: userSlice,
-    modal: modalSlice,
+    classrooms: classroomSlice,
   },
 });
 

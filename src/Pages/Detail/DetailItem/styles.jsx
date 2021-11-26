@@ -78,3 +78,34 @@ export const DetailContainerStyles = (theme) => css`
     }
   }
 `;
+
+export const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40rem;
+  h1 {
+    padding: 1rem 0;
+    font-size: 2.4rem;
+  }
+  p {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    font-size: 1.9rem;
+  }
+  .detail-button-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+  }
+`;
+
+export const ModalContainerStyles = (theme) => css`
+  h1 {
+  }
+  p {
+  }
+`;
