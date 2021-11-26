@@ -50,6 +50,13 @@ export const MyPageClassroomsContainer = styled.div`
     column-gap: 3rem;
     row-gap: 6rem;
   }
+
+  .no-lecture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const MyPagePtagStyles = (theme) => css`

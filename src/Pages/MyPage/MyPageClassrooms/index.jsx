@@ -11,14 +11,15 @@ const MyPageClassrooms = ({ classroomData }) => {
     <MyPageClassroomsContainer css={MyPagePtagStyles(theme)}>
       <div className="title">
         <h1>내 강의 목록</h1>
-        {!classroomData && <NoLecture />}
       </div>
-      {classroomData && (
+      {classroomData?.length > 0 ? (
         <div className="mypage-grid">
           {classroomData?.classrooms?.map((item, idx) => (
             <LectureItem key={idx} classroom={item} />
           ))}
         </div>
+      ) : (
+        <NoLecture />
       )}
     </MyPageClassroomsContainer>
   );

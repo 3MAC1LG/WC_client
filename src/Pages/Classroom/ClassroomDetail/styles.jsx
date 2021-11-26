@@ -17,7 +17,6 @@ export const ClassroomDetailContainer = styled.div`
         p {
           margin: 0;
           font-size: 1.9rem;
-          font-weight: bold;
           padding-bottom: 0.5rem;
         }
         h1 {
