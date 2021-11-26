@@ -27,7 +27,6 @@ const App = () => {
   const { data: userData } = useSWR('/api/users', fetcher);
   const darkMode = useDarkMode(false);
 
-  console.log(userData);
   return (
     <>
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
