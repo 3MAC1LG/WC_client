@@ -9,7 +9,7 @@ import { useParams } from 'react-router';
 
 const Detail = () => {
   const { classroomId } = useParams();
-  const { data: classroomData } = useSWR(
+  const { data: classroomData, mutate } = useSWR(
     `/api/classrooms/${classroomId}`,
     fetcher,
   );
@@ -19,7 +19,7 @@ const Detail = () => {
         <div className="detail">
           <Menu />
           {classroomData?.data && (
-            <DetailItem classroomData={classroomData.data} />
+            <DetailItem mutate={mutate} classroomData={classroomData.data} />
           )}
         </div>
       </Responsive>
