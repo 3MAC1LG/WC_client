@@ -17,6 +17,7 @@ const Login = loadable(() => import('./pages/Login'));
 const Account = loadable(() => import('./pages/Account'));
 const Lecture = loadable(() => import('./pages/Lecture'));
 const Classroom = loadable(() => import('./pages/Classroom'));
+const Detail = loadable(() => import('./pages/Detail'));
 const Studyroom = loadable(() => import('./pages/Studyroom'));
 const StudyroomForm = loadable(() => import('./pages/StudyroomForm'));
 const NotFound = loadable(() => import('./pages/NotFound'));
@@ -25,6 +26,8 @@ const NotLogin = loadable(() => import('./pages/NotLogin'));
 const App = () => {
   const { data: userData } = useSWR('/api/users', fetcher);
   const darkMode = useDarkMode(false);
+
+  console.log(userData);
   return (
     <>
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
@@ -75,32 +78,16 @@ const App = () => {
           />
           <Route path="/classroom/:classroomId">
             <Switch>
+              <Route exact path="/classroom/:classroomId">
+                <Detail />
+              </Route>
               <Route
-                exact
                 path="/classroom/:classroomId/studyroom"
-                render={(props) =>
-                  userData ? (
-                    <StudyroomForm {...props} />
-                  ) : (
-                    <Redirect
-                      path="/classroom/:classroomId/studyroom"
-                      to="/login"
-                    />
-                  )
-                }
+                render={(props) => <StudyroomForm {...props} />}
               />
               <Route
                 path="/classroom/:classroomId/studyroom/:studyroomId"
-                render={(props) =>
-                  userData ? (
-                    <Studyroom {...props} />
-                  ) : (
-                    <Redirect
-                      path="/classroom/:classroomId/studyroom"
-                      to="/login"
-                    />
-                  )
-                }
+                render={(props) => <Studyroom {...props} />}
               />
             </Switch>
           </Route>

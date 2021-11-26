@@ -3,11 +3,9 @@ import axios from 'axios';
 
 export const get_logout = createAsyncThunk('user/LOGOUT', async () => {
   try {
-    const res = await axios.post(
-      'http://localhost:4000/api/users/logout',
-      null,
-      { withCredentials: true },
-    );
+    const res = await axios.post('/api/users/logout', null, {
+      withCredentials: true,
+    });
     return res.data;
   } catch (e) {
     console.error(e);
