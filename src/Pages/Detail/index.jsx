@@ -1,10 +1,20 @@
 import React from 'react';
+import Menu from '../../components/Menu';
+import Responsive from '../../lib/styles/Responsive';
+import { DetailContainer } from './styles';
 
 const Detail = () => {
   return (
-    <div>
-      <h1>Detail</h1>
-    </div>
+    <DetailContainer>
+      <Responsive>
+        <div className="detail">
+          <Menu />
+          <div className="detail-layout">
+            <div>ddd</div>
+          </div>
+        </div>
+      </Responsive>
+    </DetailContainer>
   );
 };
 

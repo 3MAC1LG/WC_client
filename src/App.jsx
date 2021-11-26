@@ -62,7 +62,7 @@ const App = () => {
                 <Lecture />
               </Route>
               <Route path="/lecture/:category/classroom/:classroomId">
-                <Classroom />
+                <Detail />
               </Route>
             </Switch>
           </Route>
@@ -79,7 +79,7 @@ const App = () => {
           <Route path="/classroom/:classroomId">
             <Switch>
               <Route exact path="/classroom/:classroomId">
-                <Detail />
+                <Classroom />
               </Route>
               <Route
                 path="/classroom/:classroomId/studyroom"
