@@ -5,12 +5,13 @@ import { fetcher } from '../../lib/api/fetcher';
 import Responsive from '../../lib/styles/Responsive';
 import Menu from '../../components/Menu';
 import MyPageClassrooms from './MyPageClassrooms';
+import { get_classroom } from '../../lib/api/get_classroom';
 
 const MyPage = () => {
   const { data: userData } = useSWR('/api/users', fetcher);
   const { data: classroomData } = useSWR(
-    userData ? `/api/classrooms/:${userData.id}` : null,
-    fetcher,
+    userData ? `/api/classrooms/user` : null,
+    get_classroom,
   );
 
   if (classroomData) {
@@ -21,7 +22,7 @@ const MyPage = () => {
       <Responsive>
         <div className="mypage">
           <Menu />
-          <MyPageClassrooms classroomData={classroomData} />
+          <MyPageClassrooms classroomData={classroomData?.data} />
         </div>
       </Responsive>
     </MyPageContainer>

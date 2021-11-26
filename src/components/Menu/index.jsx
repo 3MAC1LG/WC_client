@@ -7,6 +7,7 @@ import { MenuContainer, MenuContainerStyles } from './styles';
 const Menu = () => {
   const theme = useTheme();
   const { pathname } = useLocation();
+
   return !pathname.includes('/lecture') ? (
     <MenuContainer css={MenuContainerStyles(theme)}>
       <ul>
@@ -19,9 +20,6 @@ const Menu = () => {
           <NavLink activeClassName="active" to="/account">
             계정관리
           </NavLink>
-        </li>
-        <li>
-          <a>로그아웃</a>
         </li>
       </ul>
     </MenuContainer>
