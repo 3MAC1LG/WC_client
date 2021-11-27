@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 export const PreviewLectureList = styled.div`
   .form-layout {
@@ -28,6 +29,57 @@ export const PreviewLectureList = styled.div`
           position: relative;
 
           width: 47rem;
+        }
+      }
+      .preview-box-button {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 4rem;
+        padding: 2rem;
+        div {
+          border-radius: 3rem;
+          width: 13rem;
+          height: 4rem;
+          font-size: 1.4rem;
+          color: #fcfdfe;
+        }
+        .prev {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #fed595;
+        }
+        .prev:hover {
+          opacity: 0.9;
+          cursor: pointer;
+        }
+        .create {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #8a85ec;
+        }
+        .create:hover {
+          opacity: 0.9;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+`;
+
+export const NextDark = (theme) => css`
+  .form-layout {
+    .preview-box {
+      background-color: #f1f3f9;
+
+      .preview-box-button {
+        .prev {
+          background-color: ${theme.btn_y};
+        }
+
+        .create {
+          background-color: ${theme.font_b};
         }
       }
     }
