@@ -13,10 +13,6 @@ const MyPage = () => {
     userData ? `/api/classrooms/user` : null,
     get_classroom,
   );
-
-  if (classroomData) {
-    console.log(classroomData);
-  }
   return (
     <MyPageContainer>
       <Responsive>

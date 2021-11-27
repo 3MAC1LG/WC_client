@@ -4,7 +4,12 @@ import { css } from '@emotion/react';
 export const LectureItemContainer = styled.div`
   border-radius: 2rem;
   padding: 3rem;
-  cursor: pointer;
+  ${(props) =>
+    props.location
+      ? null
+      : css`
+          cursor: pointer;
+        `}
   &:hover {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }

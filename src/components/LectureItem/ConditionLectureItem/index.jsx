@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
+import React, { useCallback } from 'react';
 import { MdVideoLibrary } from 'react-icons/md';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import {
@@ -9,17 +9,22 @@ import {
   SearchStyleContainer,
 } from './styles';
 import { useTheme } from '@emotion/react';
+import Button from '../../Button';
+import { withRouter } from 'react-router';
 
-const ConditionLectureItem = ({ classroom, type }) => {
+const ConditionLectureItem = ({ history, classroom, type }) => {
   const theme = useTheme();
+  const onPush = useCallback(() => {
+    history.push(`/classroom/:${classroom.id}`);
+  }, [history]);
   return (
     <div>
       {type.pathname.includes('mypage') ? (
         <MyPageContainer css={MyPageStyleContainer(theme)}>
           <MdVideoLibrary className="lecture-video" />
-          <div>
+          <div className="lecture-footer">
             <AiOutlineClockCircle className="lecture-time" />
-            <div className="mv-classroom">강의실로 이동</div>
+            <Button onClick={onPush} text="강의실로 이동" />
           </div>
         </MyPageContainer>
       ) : (
@@ -35,4 +40,4 @@ const ConditionLectureItem = ({ classroom, type }) => {
   );
 };
 
-export default ConditionLectureItem;
+export default React.memo(withRouter(ConditionLectureItem));

@@ -14,8 +14,8 @@ const MyPageClassrooms = ({ classroomData }) => {
       </div>
       {classroomData?.length > 0 ? (
         <div className="mypage-grid">
-          {classroomData?.classrooms?.map((item, idx) => (
-            <LectureItem key={idx} classroom={item} />
+          {classroomData.map((classroom, idx) => (
+            <LectureItem key={idx} classroom={classroom.Classroom} />
           ))}
         </div>
       ) : (
@@ -25,4 +25,4 @@ const MyPageClassrooms = ({ classroomData }) => {
   );
 };
 
-export default MyPageClassrooms;
+export default React.memo(MyPageClassrooms);
