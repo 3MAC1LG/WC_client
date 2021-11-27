@@ -60,7 +60,7 @@ const StudyroomForm = () => {
           </div>
         </div>
       )}
-      {page == 2 && <NextForm />}
+      {page == 2 && <NextForm setPage={setPage} page={page} />}
     </StudyFormContainer>
   );
 };
