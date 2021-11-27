@@ -12,11 +12,11 @@ const LectureItem = ({ history, classroom }) => {
   const onPush = useCallback(() => {
     history.push(`/lecture/:${classroom.category}/classroom/:${classroom.id}`);
   }, [history]);
-
   return (
     classroom && (
       <LectureItemContainer
-        onClick={onPush}
+        location={location.pathname === '/mypage' ? true : false}
+        onClick={location.pathname === '/mypage' ? null : onPush}
         css={LectureItemContainerStyles(theme)}
       >
         <div className="item-title">

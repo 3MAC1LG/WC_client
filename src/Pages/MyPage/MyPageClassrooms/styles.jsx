@@ -27,21 +27,6 @@ export const MyPageClassroomsContainer = styled.div`
     font-size: 1.75rem;
   }
 
-  button {
-    border: none;
-    background: none;
-    outline: none;
-
-    cursor: pointer;
-    border-radius: 0.7rem;
-    padding: 2rem 12rem;
-    font-size: 2.25rem;
-    font-weight: bold;
-    &:hover {
-      opacity: 0.9;
-    }
-  }
-
   .mypage-grid {
     margin-top: 6rem;
     display: grid;

@@ -33,28 +33,13 @@ export const MyPageContainer = styled.div`
     margin-bottom: 1rem;
   }
 
-  div {
+  .lecture-footer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     .lecture-time {
       font-size: 3rem;
       color: #8a85ec;
-    }
-
-    .mv-classroom {
-      display: flex;
-      justify-content: center;
-      border-radius: 3rem;
-      padding: 3rem;
-      font-size: 1.5rem;
-      color: white;
-      background-color: #8a85ec;
-    }
-
-    .mv-classroom:hover {
-      opacity: 0.9;
-      cursor: pointer;
     }
   }
 `;
@@ -74,7 +59,7 @@ export const MyPageStyleContainer = (theme) => css`
   .lecture-video {
     color: ${theme.primary};
   }
-  div {
+  .lecture-footer {
     .lecture-time {
       color: ${theme.primary};
     }
