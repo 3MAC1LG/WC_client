@@ -14,7 +14,7 @@ const StudyroomForm = () => {
 
   return (
     <StudyFormContainer css={FormDark(theme)}>
-      {page == 1 && (
+      {/* {page == 1 && (
         <div className="form-layout">
           <div className="create-title">
             스터디룸 <span>개설</span>하기
@@ -59,8 +59,9 @@ const StudyroomForm = () => {
             </div>
           </div>
         </div>
-      )}
-      {page == 2 && <NextForm />}
+      )} */}
+      {/* {page == 2 && <NextForm />} */}
+      <NextForm />
     </StudyFormContainer>
   );
 };
