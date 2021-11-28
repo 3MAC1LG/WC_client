@@ -5,7 +5,7 @@ export const ClassroomDetailContainer = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  border-radius: 1.2rem;
+  justify-content: center;
 
   .classroom-padding {
     padding: 3rem;
@@ -26,7 +26,11 @@ export const ClassroomDetailContainer = styled.div`
       .classroom-contents-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 2rem;
+        column-gap: 2rem;
+        @media screen and (max-width: 768px) {
+          grid-template-columns: repeat(1, 1fr);
+          column-gap: 2rem;
+        }
 
         .video-desc {
           .classroom-video {
@@ -62,6 +66,17 @@ export const ClassroomDetailContainer = styled.div`
         }
       }
     }
+    .classroom-studyroom {
+      .studyroom-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 3rem;
+        h1 {
+          font-size: 2.4rem;
+        }
+      }
+    }
   }
 `;
 
@@ -89,4 +104,6 @@ export const ClassroomDetailContainerStyles = (theme) => css`
   }
 `;
 
-export const OpenStudy = (theme) => css``;
+export const Split = styled.hr`
+  border-color: #c1c1c1;
+`;

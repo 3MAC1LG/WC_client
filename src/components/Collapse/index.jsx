@@ -9,51 +9,42 @@ import {
 } from 'react-accessible-accordion';
 import 'react-accessible-accordion/dist/fancy-example.css';
 
-const Collapse = () => {
+const Collapse = ({ data }) => {
   return (
     <AccordionStyle>
       <div className="accordion">
         <Accordion className="accordion-border" allowZeroExpanded>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton className="button">
-                섹션 1. 리액트의 기초
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel className="panel">
-              <div>리액트 시작</div>
-              <div>JSX</div>
-              <div>컴포넌트</div>
-            </AccordionItemPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton className="button">
-                섹션 1. 리액트의 기초
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel className="panel">
-              <div>리액트 시작</div>
-              <div>JSX</div>
-              <div>컴포넌트</div>
-            </AccordionItemPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionItemHeading>
-              <AccordionItemButton className="button">
-                섹션 1. 리액트의 기초
-              </AccordionItemButton>
-            </AccordionItemHeading>
-            <AccordionItemPanel className="panel">
-              <div>리액트 시작</div>
-              <div>JSX</div>
-              <div>컴포넌트</div>
-            </AccordionItemPanel>
-          </AccordionItem>
+          {data.length > 0 ? (
+            data.map((section, idx) => (
+              <AccordionItem key={section.id}>
+                <AccordionItemHeading>
+                  <AccordionItemButton className="button">
+                    섹션 {idx + 1}. {section.title}
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                {section.Videos?.map((video) => (
+                  <AccordionItemPanel key={video.id} className="video">
+                    <div>{video.title}</div>
+                  </AccordionItemPanel>
+                ))}
+              </AccordionItem>
+            ))
+          ) : (
+            <AccordionItem>
+              <AccordionItemHeading>
+                <AccordionItemButton
+                  style={{ display: 'flex', justifyContent: 'center' }}
+                  className="button"
+                >
+                  강의를 준비중입니다 ㅜ_ㅜ
+                </AccordionItemButton>
+              </AccordionItemHeading>
+            </AccordionItem>
+          )}
         </Accordion>
       </div>
     </AccordionStyle>
   );
 };
 
-export default Collapse;
+export default React.memo(Collapse);

@@ -14,7 +14,7 @@ import './styles.css';
 import useSWR from 'swr';
 import { fetcher } from '../../../lib/api/fetcher';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams, withRouter } from 'react-router';
 import {
   cancle_classroom,
   register_classroom,
@@ -23,9 +23,14 @@ import {
 import { useSelector } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Collapse from '../../../components/Collapse';
 
-const DetailItem = ({ classroomData, mutate }) => {
+const DetailItem = ({ history, classroomData, mutate }) => {
   const { data: userData } = useSWR('/api/users', fetcher);
+  const { data: sectionData } = useSWR(
+    `/api/sections/:${classroomData.id}`,
+    fetcher,
+  );
   const register = useSelector((state) => state.classrooms.register);
   const cancle = useSelector((state) => state.classrooms.cancle);
   const dispatch = useDispatch();
@@ -33,6 +38,7 @@ const DetailItem = ({ classroomData, mutate }) => {
   const theme = useTheme();
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+  let sum = 0;
   const onCloseModal1 = useCallback(() => {
     setModal1(false);
   }, [setModal1]);
@@ -56,7 +62,9 @@ const DetailItem = ({ classroomData, mutate }) => {
     setModal2(false);
   }, [dispatch, mutate]);
 
-  console.log(classroomData);
+  const onLogin = useCallback(() => {
+    history.push('/login');
+  }, [history]);
 
   useEffect(() => {
     if (register) {
@@ -115,7 +123,14 @@ const DetailItem = ({ classroomData, mutate }) => {
                 <span>{`${classroomData.ClassroomMembers.length}`}명</span>
               </p>
               <p>
-                강의 <span>총 00개의 강의</span>
+                강의{' '}
+                <span>
+                  총{' '}
+                  {sectionData?.data
+                    ?.map((section) => sum + section.Videos.length)
+                    .reduce((a, b) => a + b, 0) || 0}
+                  개의 강의
+                </span>
               </p>
             </div>
             <div className="detail-info-right">
@@ -129,24 +144,47 @@ const DetailItem = ({ classroomData, mutate }) => {
               )}
             </div>
           </div>
+          <div className="detail-cur">
+            <h1>커리큘럼</h1>
+            {sectionData?.data && <Collapse data={sectionData.data} />}
+          </div>
         </div>
       </DetailItemContainer>
-      <Modal
-        open={modal1}
-        showCloseIcon={false}
-        center={true}
-        onClose={onCloseModal1}
-        classNames={{ modal: 'detail-modal' }}
-      >
-        <ModalContainer css={ModalContainerStyles(theme)}>
-          <h1>{classroomData.name}</h1>
-          <p>수강신청 하시겠습니까?</p>
-          <div className="detail-button-box">
-            <Button onClick={onRegister} text="수강신청" />
-            <Button onClick={onCloseModal1} text="취소" />
-          </div>
-        </ModalContainer>
-      </Modal>
+      {userData ? (
+        <Modal
+          open={modal1}
+          showCloseIcon={false}
+          center={true}
+          onClose={onCloseModal1}
+          classNames={{ modal: 'detail-modal' }}
+        >
+          <ModalContainer css={ModalContainerStyles(theme)}>
+            <h1>{classroomData.name}</h1>
+            <p>수강신청 하시겠습니까?</p>
+            <div className="detail-button-box">
+              <Button onClick={onRegister} text="수강신청" />
+              <Button onClick={onCloseModal1} text="취소" />
+            </div>
+          </ModalContainer>
+        </Modal>
+      ) : (
+        <Modal
+          open={modal1}
+          showCloseIcon={false}
+          center={true}
+          onClose={onCloseModal1}
+          classNames={{ modal: 'detail-modal' }}
+        >
+          <ModalContainer css={ModalContainerStyles(theme)}>
+            <h1>앗..! 로그인 상태가 아니시네요</h1>
+            <p>수강신청을 위해서 로그인이 필요합니다</p>
+            <div className="detail-button-box">
+              <Button onClick={onLogin} text="로그인" />
+              <Button onClick={onCloseModal1} text="취소" />
+            </div>
+          </ModalContainer>
+        </Modal>
+      )}
       <Modal
         open={modal2}
         showCloseIcon={false}
@@ -168,4 +206,4 @@ const DetailItem = ({ classroomData, mutate }) => {
   );
 };
 
-export default DetailItem;
+export default React.memo(withRouter(DetailItem));

@@ -58,6 +58,19 @@ export const DetailItemContainer = styled.div`
     .detail-info-left {
     }
   }
+  .detail-cur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+    }
+  }
 `;
 
 export const DetailContainerStyles = (theme) => css`

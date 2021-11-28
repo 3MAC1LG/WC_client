@@ -32,6 +32,9 @@ export const MyPageClassroomsContainer = styled.div`
     display: grid;
     flex: 1;
     grid-template-columns: repeat(2, 1fr);
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     column-gap: 3rem;
     row-gap: 6rem;
   }
