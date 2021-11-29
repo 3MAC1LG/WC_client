@@ -67,6 +67,7 @@ export const ClassroomDetailContainer = styled.div`
       }
     }
     .classroom-studyroom {
+      margin-bottom: 3rem;
       .studyroom-title {
         display: flex;
         align-items: center;
@@ -74,6 +75,35 @@ export const ClassroomDetailContainer = styled.div`
         margin-top: 3rem;
         h1 {
           font-size: 2.4rem;
+        }
+      }
+      .studyroom-common {
+        margin-top: 3rem;
+        .studyroom-common-title {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          svg {
+            font-size: 2.3rem;
+          }
+          h1 {
+            margin-left: 0.7rem;
+            font-size: 1.9rem;
+          }
+        }
+        .studyroom-grid {
+          margin-top: 1.5rem;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+          @media screen and (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .item-none {
+            padding: 2rem 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
         }
       }
     }
@@ -98,6 +128,21 @@ export const ClassroomDetailContainerStyles = (theme) => css`
           background: #eaeaea;
         }
         .classroom-section {
+        }
+      }
+    }
+    .classroom-studyroom {
+      .studyroom-title {
+        h1 {
+        }
+      }
+      .studyroom-common {
+        .studyroom-common-title {
+          color: ${theme.font_b};
+          svg {
+          }
+          h1 {
+          }
         }
       }
     }

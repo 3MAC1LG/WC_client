@@ -9,10 +9,12 @@ import useSWR from 'swr';
 import { fetcher } from '../../lib/api/fetcher';
 import { BiUser } from 'react-icons/bi';
 import Modal from '../../components/Modal';
+import { useLocation } from 'react-router-dom';
 
 const Header = ({ history }) => {
   const { data: userData, error, mutate } = useSWR('/api/users', fetcher);
   const [modal, setModal] = useState(false);
+  const { pathname } = useLocation();
   const theme = useTheme();
   const onPush = useCallback(
     (type) => {
@@ -27,6 +29,10 @@ const Header = ({ history }) => {
   const onModal = useCallback(() => {
     setModal((prev) => !prev);
   }, [setModal]);
+
+  if (pathname.includes('/studyroom/:')) {
+    return null;
+  }
   return (
     <>
       <HeaderContainer css={HeaderContainerStyles(theme)}>

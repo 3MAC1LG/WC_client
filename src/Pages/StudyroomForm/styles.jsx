@@ -11,10 +11,11 @@ export const StudyFormContainer = styled.div`
 
     .create-title {
       font-size: 1.6rem;
+      font-weight: bold;
     }
 
     .create-form {
-      width: 47rem;
+      width: 52.5rem;
       margin-top: 3rem;
       border-radius: 2rem;
 
