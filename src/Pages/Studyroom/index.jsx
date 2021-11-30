@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useEffect } from 'react';
 import { useTheme } from '@emotion/react';
 import {
   StudyroomContainer,
@@ -112,9 +112,63 @@ const Studyroom = ({ history }) => {
       setChat,
     ],
   );
+
+  const onMessage = useCallback(
+    (data) => {
+      if (
+        data.StudyroomId === parseInt(studyroomId.slice(1)) &&
+        (data.content.startsWith('uploads\\') ||
+          data.content.startsWith('uploads/') ||
+          data.UserId !== userData?.id)
+      ) {
+        mutateChat((chatData) => {
+          chatData?.[0].unshift(data);
+          return chatData;
+        }, false).then(() => {
+          if (scrollbarRef.current) {
+            if (
+              scrollbarRef.current.getScrollHeight() <
+              scrollbarRef.current.getClientHeight() +
+                scrollbarRef.current.getScrollTop() +
+                150
+            ) {
+              setTimeout(() => {
+                scrollbarRef.current?.scrollToBottom();
+              }, 100);
+            } else {
+              toast.success('새 메시지가 도착했습니다.', {
+                onClick() {
+                  scrollbarRef.current?.scrollToBottom();
+                },
+                closeOnClick: true,
+              });
+            }
+          }
+        });
+      }
+    },
+    [studyroomId, userData, mutateChat],
+  );
+
+  useEffect(() => {
+    socket?.on('message', onMessage);
+    return () => {
+      socket?.off('message', onMessage);
+    };
+  }, [socket, onMessage]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      `${classroomId.slice(1)}-${studyroomId.slice(1)}`,
+      new Date().getTime().toString(),
+    );
+  }, [classroomId, studyroomId]);
+
   const chatSections = makeSection(
     chatData ? [].concat(...chatData).reverse() : [],
   );
+
+  console.log(chatData);
 
   return (
     <StudyroomContainer>
