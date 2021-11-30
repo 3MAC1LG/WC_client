@@ -17,7 +17,7 @@ export const register_studyroom = createAsyncThunk(
 
 export const join_studyroom = createAsyncThunk('studyroom/join', async (id) => {
   try {
-    const res = await axios.post(`/api/studyrooms/${id}/join`, null, {
+    const res = await axios.post(`/api/studyrooms/:${id}/join`, null, {
       withCredentials: true,
     });
     return res.data;

@@ -20,9 +20,11 @@ import {
   join_studyroom,
   reset_studyroomFormPagePrev,
 } from '../../../reducers/studyroomSlice';
+import axios from 'axios';
 
 const Public = ({ history }) => {
-  const join = useSelector((state) => state.studyrooms.join);
+  // const join = useSelector((state) => state.studyrooms.join);
+  const [join, setJoin] = useState(null);
   const dispatch = useDispatch();
   const { classroomId } = useParams();
   const { data: studyroomsData } = useSWR(
@@ -40,11 +42,15 @@ const Public = ({ history }) => {
   }, [setModal]);
 
   const onApply = useCallback(
-    (id) => {
-      dispatch(join_studyroom(id));
+    async (id) => {
+      // dispatch(join_studyroom(id));
+      await axios
+        .post(`/api/studyrooms/:${id}/join`, null, { withCredentials: true })
+        .then((res) => setJoin(res.data))
+        .catch((e) => console.log(e));
       setModal(false);
     },
-    [history, classroomId, dispatch],
+    [history, setJoin],
   );
 
   useEffect(() => {
@@ -52,9 +58,9 @@ const Public = ({ history }) => {
       history.push(
         `/classroom/${classroomId}/studyroom/:${join.data.StudyroomId}`,
       );
-      reset_studyroomFormPagePrev();
     }
-  }, [join, reset_studyroomFormPagePrev]);
+  }, [join]);
+
   return studyroomsData ? (
     studyroomsData.data.public.length > 0 ? (
       studyroomsData.data.public.map((studyroom) => (
@@ -70,10 +76,10 @@ const Public = ({ history }) => {
             <div className="item-user">
               <div className="item-owner">
                 <AiOutlineUser />
-                <span>{studyroom.Owner.email}</span>
+                <span>{studyroom?.Owner?.email}</span>
               </div>
               <div className="item-inviter">
-                <span>{studyroom.StudyroomMembers.length}명 참여중</span>
+                <span>{studyroom?.StudyroomMembers?.length}명 참여중</span>
               </div>
             </div>
           </ItemContainer>
@@ -88,7 +94,7 @@ const Public = ({ history }) => {
               <h1>{studyroom.title}</h1>
               <p>스터디룸에 참가하시겠습니까?</p>
               <div className="detail-button-box">
-                <Button onClick={() => onApply(studyroom.id)} text="참가" />
+                <Button onClick={() => onApply(studyroom?.id)} text="참가" />
                 <Button onClick={onClose} text="취소" />
               </div>
             </ModalContainer>
