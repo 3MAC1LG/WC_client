@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 export const StudyFormContainer = styled.div`
+  margin-bottom: 6rem;
   .form-layout {
     display: flex;
     flex-direction: column;

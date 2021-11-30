@@ -3,7 +3,7 @@ import { useTheme } from '@emotion/react';
 import React, { useEffect, useState, useCallback } from 'react';
 import { NextDark, PreviewLectureList } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams, withRouter } from 'react-router';
 import useSWR from 'swr';
 import { fetcher } from '../../../lib/api/fetcher';
 import {
@@ -17,17 +17,17 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import { AccordionStyle } from '../../../components/Collapse/styles';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import { register_studyroom } from '../../../reducers/studyroomSlice';
 
-const NextForm = ({ setPage, page }) => {
+const NextForm = ({ history, setPage, page }) => {
   const { classroomId } = useParams();
   const { data: sectionData } = useSWR(`/api/sections/${classroomId}`, fetcher);
   const studyroomFormPagePrev = useSelector(
     (state) => state.studyrooms.studyroomFormPagePrev,
   );
+  const register = useSelector((state) => state.studyrooms.register);
   const dispatch = useDispatch();
   const [selectVideo, setSelectVideo] = useState(null);
-  const [studyroom, setStudyroom] = useState(null);
   const theme = useTheme();
   const onPushPrev = () => {
     setPage(page - 1);
@@ -46,10 +46,9 @@ const NextForm = ({ setPage, page }) => {
         studyroom: studyroomFormPagePrev,
         video: selectVideo,
       };
-      console.log(data);
-      // await axios.post('', data, {withCredentials: true}).then((res) => setStudyroom(res.data)).catch((e) => console.error(e));
+      dispatch(register_studyroom({ data, id: classroomId }));
     }
-  }, [setStudyroom, studyroomFormPagePrev, selectVideo]);
+  }, [studyroomFormPagePrev, selectVideo, dispatch, classroomId]);
 
   useEffect(() => {
     if (selectVideo) {
@@ -66,9 +65,11 @@ const NextForm = ({ setPage, page }) => {
     }
   }, [selectVideo]);
 
-  if (sectionData) {
-    console.log(sectionData);
-  }
+  useEffect(() => {
+    if (register) {
+      history.push(`/classroom/${classroomId}/studyroom/:${register.data?.id}`);
+    }
+  }, [register, history]);
   return (
     <>
       <PreviewLectureList css={NextDark(theme)}>
@@ -142,4 +143,4 @@ const NextForm = ({ setPage, page }) => {
   );
 };
 
-export default React.memo(NextForm);
+export default React.memo(withRouter(NextForm));

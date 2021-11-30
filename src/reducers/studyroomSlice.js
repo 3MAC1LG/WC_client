@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const register_studyroom = createAsyncThunk(
   'studyroom/register',
-  async (id) => {
+  async ({ data, id }) => {
     try {
-      const res = await axios.post(`/api/studyrooms/${id}/register`, null, {
+      const res = await axios.post(`/api/studyrooms/${id}`, data, {
         withCredentials: true,
       });
       return res.data;
@@ -31,6 +31,8 @@ const initialState = {
   studyroomFormPagePrevError: null,
   join: null,
   joinError: null,
+  register: null,
+  registerError: null,
 };
 
 const studyroomSlice = createSlice({
@@ -42,6 +44,8 @@ const studyroomSlice = createSlice({
       state.studyroomFormPagePrevError = null;
       state.join = null;
       state.joinError = null;
+      state.register = null;
+      state.registerError = null;
     },
     add_studyroomFormPagePrev: (state, action) => {
       state.studyroomFormPagePrev = action.payload;
@@ -49,10 +53,10 @@ const studyroomSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(register_studyroom.fulfilled, (state, action) => {
-      state.studyroom = action.payload;
+      state.register = action.payload;
     });
     builder.addCase(register_studyroom.rejected, (state, action) => {
-      state.studyroomError = action.error;
+      state.registerError = action.error;
     });
     builder.addCase(join_studyroom.fulfilled, (state, action) => {
       state.join = action.payload;

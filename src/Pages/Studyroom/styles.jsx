@@ -38,3 +38,14 @@ export const StudyroomHeaderStyles = (theme) => css`
     }
   }
 `;
+
+export const StudyroomVideoTitle = styled.div`
+  margin: 1.5rem 1.5rem;
+  span {
+    font-size: 2rem;
+  }
+  p {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+  }
+`;

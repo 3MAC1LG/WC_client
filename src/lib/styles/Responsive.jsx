@@ -5,6 +5,10 @@ const ResponsiveBlock = styled.div`
   width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
+  @media screen and (min-width: 1768px) {
+    width: 100%;
+    padding: 0 3rem;
+  }
   @media screen and (max-width: 1280px) {
     width: 1024px;
   }

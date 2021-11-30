@@ -92,7 +92,7 @@ const StudyroomForm = ({ history }) => {
                   <input
                     type="password"
                     placeholder="비밀번호를 입력하세요."
-                    {...register('password', { required: true })}
+                    {...register('password')}
                   />
                 </div>
                 <div className="studyroom-image">
