@@ -70,7 +70,7 @@ const Public = ({ history }) => {
             <div className="item-user">
               <div className="item-owner">
                 <AiOutlineUser />
-                <span>{studyroom.Owner.nickname}</span>
+                <span>{studyroom.Owner.email}</span>
               </div>
               <div className="item-inviter">
                 <span>{studyroom.StudyroomMembers.length}명 참여중</span>

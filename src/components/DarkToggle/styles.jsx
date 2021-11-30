@@ -13,6 +13,7 @@ export const DarkToggleContainer = (theme) => css`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
   svg {
     font-size: 4rem;
   }

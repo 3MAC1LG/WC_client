@@ -116,7 +116,6 @@ const Studyroom = ({ history }) => {
     chatData ? [].concat(...chatData).reverse() : [],
   );
 
-  console.log(studyroomData);
   return (
     <StudyroomContainer>
       <StudyroomHeader css={StudyroomHeaderStyles(theme)}>
@@ -143,6 +142,7 @@ const Studyroom = ({ history }) => {
             scrollToBottom={scrollbarRef}
             isEmpty={isEmpty}
             setSize={setSize}
+            member={studyroomMemberData?.data}
           />
         </div>
       </Responsive>

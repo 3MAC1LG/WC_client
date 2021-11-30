@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router';
+import Button from '../../../components/Button';
 import LottieLanding from '../../../lottie/LottieLanding';
 
 const NoLecture = ({ history }) => {
@@ -12,7 +13,7 @@ const NoLecture = ({ history }) => {
         <LottieLanding />
       </div>
       <p>수강중인 강의가 없습니다.</p>
-      <button onClick={onPush}>강의 찾기</button>
+      <Button text="로그인하러가기" />
     </div>
   );
 };

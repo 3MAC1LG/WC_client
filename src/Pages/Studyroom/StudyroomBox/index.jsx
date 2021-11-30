@@ -4,6 +4,7 @@ import Menu, { MenuItem } from 'rc-menu';
 import 'rc-menu/assets/index.css';
 import ChatFrom from './ChatForm';
 import ChatList from './ChatList';
+import StudyroomWebcam from './StudyroomWebcam';
 
 const StudyroomBox = ({
   chat,
@@ -14,6 +15,7 @@ const StudyroomBox = ({
   isEmpty,
   setSize,
   chatSections,
+  member,
 }) => {
   const [page, setPage] = useState('1');
   return (
@@ -51,7 +53,7 @@ const StudyroomBox = ({
             />
           </>
         )}
-        {page === '2' && <h1>참여자</h1>}
+        {page === '2' && <StudyroomWebcam member={member} />}
         {page === '3' && <h1>QnA</h1>}
       </div>
     </StudyroomBoxContainer>
