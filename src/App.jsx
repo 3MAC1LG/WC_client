@@ -31,9 +31,9 @@ const App = () => {
     <>
       <ThemeProvider theme={Theme[darkMode.value ? 'dark' : 'light']}>
         <GlobalStyles />
-        <Header />
         <DarkToggle />
         <FixedCircle />
+        <Header />
         <Switch>
           <Redirect exact path="/" to="/mypage" />
           <Route
@@ -81,6 +81,7 @@ const App = () => {
                 <Classroom />
               </Route>
               <Route
+                exact
                 path="/classroom/:classroomId/studyroom"
                 render={(props) => <StudyroomForm {...props} />}
               />

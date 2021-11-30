@@ -18,6 +18,7 @@ export const PreviewLectureList = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         padding: 2rem;
         .preview-box-title {
           font-size: 1.8rem;
@@ -30,11 +31,14 @@ export const PreviewLectureList = styled.div`
 
           width: 47rem;
         }
+        .preview-box-section {
+          margin-top: 3rem;
+        }
       }
       .preview-box-button {
         display: flex;
         justify-content: space-around;
-        margin-top: 4rem;
+        margin-top: 3rem;
         padding: 2rem;
         div {
           border-radius: 3rem;

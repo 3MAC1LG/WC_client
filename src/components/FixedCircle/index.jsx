@@ -19,6 +19,9 @@ const FixedCircle = () => {
   if (pathname === '/landing') {
     return null;
   }
+  if (pathname.includes('/studyroom/:')) {
+    return null;
+  }
   return (
     <FixedCircleContainer>
       {darkMode.value ? (

@@ -24,10 +24,6 @@ const Lecture = () => {
   useEffect(() => {
     mutate();
   }, []);
-
-  if (classroomData) {
-    console.log(classroomData);
-  }
   return (
     <LectureContainer>
       <Responsive>

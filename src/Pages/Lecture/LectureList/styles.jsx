@@ -4,7 +4,6 @@ import { css } from '@emotion/react';
 export const ListContainer = styled.div`
   .title {
     font-size: 2.4rem;
-    /* font-weight: bold; */
   }
 
   .lecture-grid {
@@ -14,6 +13,10 @@ export const ListContainer = styled.div`
     row-gap: 6rem;
     margin-top: 6rem;
     margin-bottom: 6rem;
+
+    @media screen and (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 `;
 
@@ -56,14 +59,6 @@ export const SearchBox = styled.div`
     }
   }
 
-  /* .keyword {
-    width: 17rem;
-    height: 5rem;
-    border: 1px shadow #c1c1c1;
-    border-radius: 3rem;
-    background-color: #f6f7fc;
-    position: relative; */
-
   select {
     width: 13rem;
     position: absolute;
@@ -78,7 +73,6 @@ export const SearchBox = styled.div`
   select:focus {
     outline: none;
   }
-  //}
 `;
 
 export const ContainerStyles = (theme) => css`

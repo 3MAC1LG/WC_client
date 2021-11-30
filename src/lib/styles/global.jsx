@@ -1,13 +1,14 @@
 import React from 'react';
 import { css, Global, useTheme } from '@emotion/react';
+import { useLocation } from 'react-router-dom';
 
-const styles = (theme) => css`
+const styles = (theme, pt) => css`
   @import url('/assets/font/font.css');
   html,
   body {
     font-size: 62.5%;
     font-family: 'Gmaket Sans', sans-serif;
-    background: ${theme.defaultBgc};
+    background: ${pt ? '#F4F4F4' : theme.defaultBgc};
     @media screen and (max-width: 1280px) {
       font-size: 56.25%;
     }
@@ -43,8 +44,10 @@ const styles = (theme) => css`
 `;
 
 const GlobalStyles = () => {
+  const { pathname } = useLocation();
+  const pt = pathname.includes('studyroom/:') ? true : false;
   const theme = useTheme();
-  return <Global styles={styles(theme)} />;
+  return <Global styles={styles(theme, pt)} />;
 };
 
 export default GlobalStyles;
