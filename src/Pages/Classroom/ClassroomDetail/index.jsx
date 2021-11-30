@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { useTheme } from '@emotion/react';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   ClassroomDetailContainer,
   ClassroomDetailContainerStyles,
@@ -19,9 +19,12 @@ import {
   ModalContainer,
   ModalContainerStyles,
 } from '../../Detail/DetailItem/styles';
+import { reset_studyroomFormPagePrev } from '../../../reducers/studyroomSlice';
+import { useDispatch } from 'react-redux';
 
 const ClassroomDetail = ({ history }) => {
   const { classroomId } = useParams();
+  const dispatch = useDispatch();
   const { data: userData } = useSWR('/api/users', fetcher);
   const { data: classroomData } = useSWR(
     userData ? `/api/classrooms/${classroomId}` : null,
@@ -45,7 +48,9 @@ const ClassroomDetail = ({ history }) => {
     setModal(false);
   }, [setModal]);
 
-  console.log(classroomData);
+  // useEffect(() => {
+  //   return () => dispatch(reset_studyroomFormPagePrev());
+  // }, [dispatch]);
 
   return (
     <>
