@@ -26,7 +26,6 @@ const Chat = memo(({ data }) => {
       }),
     [data.content],
   );
-  console.log(data);
   return (
     <ChatContainer>
       <div className="chat-user">

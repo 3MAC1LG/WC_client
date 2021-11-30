@@ -16,6 +16,7 @@ const AccountForm = () => {
   } = useForm();
   const { data: userData, mutate } = useSWR('/api/users', fetcher);
   const [profile, setProfile] = useState(null);
+  const [img, setImg] = useState(null);
   const [nicknName, setNickName] = useState(
     userData?.nicknName ? userData.nickname : '',
   );
@@ -38,7 +39,7 @@ const AccountForm = () => {
 
   useEffect(() => {
     if (profile) {
-      toast('🎉 이미지를 성공적으로 첨부했습니다', {
+      toast('🎉 프로필을 수정했습니다', {
         position: 'bottom-center',
         autoClose: 3000,
         hideProgressBar: false,
@@ -50,6 +51,23 @@ const AccountForm = () => {
       });
     }
   }, [profile]);
+
+  useEffect(async () => {
+    if (img) {
+      const formData = new FormData();
+      formData.append('file', img);
+
+      await axios
+        .post('/api/users/upload', formData, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setProfile(res.data);
+          mutate();
+        })
+        .catch((e) => console.error(e));
+    }
+  }, [img]);
   return (
     <>
       <div className="account-back">
@@ -75,6 +93,7 @@ const AccountForm = () => {
                   <label htmlFor="file">프로필 사진 변경</label>
                   <input
                     {...register('file')}
+                    onChange={(e) => setImg(e.target.files[0])}
                     type="file"
                     id="file"
                     accept="image/*"
