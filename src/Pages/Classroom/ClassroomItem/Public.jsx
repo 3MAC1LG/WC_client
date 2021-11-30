@@ -24,6 +24,7 @@ import axios from 'axios';
 
 const Public = ({ history }) => {
   // const join = useSelector((state) => state.studyrooms.join);
+  const [path, setPath] = useState(null);
   const [join, setJoin] = useState(null);
   const dispatch = useDispatch();
   const { classroomId } = useParams();
@@ -37,15 +38,21 @@ const Public = ({ history }) => {
   const onClose = useCallback(() => {
     setModal(false);
   }, [setModal]);
-  const onOpen = useCallback(() => {
-    setModal(true);
-  }, [setModal]);
+  const onOpen = useCallback(
+    (studyroom) => {
+      setPath(studyroom);
+      setModal(true);
+    },
+    [setModal, setPath],
+  );
 
   const onApply = useCallback(
     async (id) => {
       // dispatch(join_studyroom(id));
       await axios
-        .post(`/api/studyrooms/:${id}/join`, null, { withCredentials: true })
+        .post(`/api/studyrooms/:${id}/join`, null, {
+          withCredentials: true,
+        })
         .then((res) => setJoin(res.data))
         .catch((e) => console.log(e));
       setModal(false);
@@ -63,44 +70,50 @@ const Public = ({ history }) => {
 
   return studyroomsData ? (
     studyroomsData.data.public.length > 0 ? (
-      studyroomsData.data.public.map((studyroom) => (
-        <Fragment key={studyroom.id}>
-          <ItemContainer css={ItemContainerStyle(theme)} onClick={onOpen}>
-            <div className="item-thumb">
-              <AiOutlineUnlock />
-            </div>
-            <div className="item-title">
-              <h1>{studyroom.title}</h1>
-              <p>{studyroom.Video.title}</p>
-            </div>
-            <div className="item-user">
-              <div className="item-owner">
-                <AiOutlineUser />
-                <span>{studyroom?.Owner?.email}</span>
+      <>
+        {studyroomsData.data.public.map((studyroom) => (
+          <Fragment key={studyroom.id}>
+            <ItemContainer
+              css={ItemContainerStyle(theme)}
+              onClick={() => onOpen(studyroom)}
+            >
+              <div className="item-thumb">
+                <AiOutlineUnlock />
               </div>
-              <div className="item-inviter">
-                <span>{studyroom?.StudyroomMembers?.length}명 참여중</span>
+              <div className="item-title">
+                <h1>{studyroom.title}</h1>
+                <p>{studyroom.Video.title}</p>
               </div>
+              <div className="item-user">
+                <div className="item-owner">
+                  <AiOutlineUser />
+                  <span>{studyroom.Owner.email}</span>
+                </div>
+                <div className="item-inviter">
+                  <span>{studyroom.StudyroomMembers.length}명 참여중</span>
+                </div>
+              </div>
+            </ItemContainer>
+          </Fragment>
+        ))}
+        <Modal
+          open={modal}
+          showCloseIcon={false}
+          center={true}
+          classNames={{ modal: 'detail-modal' }}
+          onClose={onClose}
+        >
+          <ModalContainer css={ModalContainerStyles(theme)}>
+            <h1>{path?.title}</h1>
+            <p>스터디룸에 참가하시겠습니까?</p>
+            <div className="detail-button-box">
+              <Button onClick={() => onApply(path?.id)} text="참가" />
+              <Button onClick={onClose} text="취소" />
             </div>
-          </ItemContainer>
-          <Modal
-            open={modal}
-            showCloseIcon={false}
-            center={true}
-            classNames={{ modal: 'detail-modal' }}
-            onClose={onClose}
-          >
-            <ModalContainer css={ModalContainerStyles(theme)}>
-              <h1>{studyroom.title}</h1>
-              <p>스터디룸에 참가하시겠습니까?</p>
-              <div className="detail-button-box">
-                <Button onClick={() => onApply(studyroom?.id)} text="참가" />
-                <Button onClick={onClose} text="취소" />
-              </div>
-            </ModalContainer>
-          </Modal>
-        </Fragment>
-      ))
+          </ModalContainer>
+        </Modal>
+        ;
+      </>
     ) : (
       <div className="item-none">개설된 스터디룸이 존재하지 않습니다</div>
     )
